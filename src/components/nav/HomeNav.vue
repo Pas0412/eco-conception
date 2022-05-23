@@ -1,83 +1,54 @@
 <template>
   <div>
     <div class="nav-item">
-      <ul>
-        <li v-for="(item,index) in nav" :key="index">
-          <a href="#">{{item}}</a>
-        </li>
-      </ul>
+<!--      <ul>-->
+<!--        <li v-for="(item,index) in nav" :key="index">-->
+<!--          <a href="#">{{item}}</a>-->
+<!--        </li>-->
+<!--      </ul>-->
     </div>
     <div class="nav-body">
       <!-- 侧边导航 -->
       <div class="nav-side" ref="navSide">
-        <ul>
+        <div class="nav-side-ul">
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">家用电器</span>
+            <span class="nav-side-item">Système de filtration</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">手机</span> /
-            <span class="nav-side-item">运营商</span> /
-            <span class="nav-side-item">数码</span>
+            <span class="nav-side-item">Appareils</span> /
+            <span class="nav-side-item">Accessoires de carrosserie</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">电脑</span> /
-            <span class="nav-side-item">办公</span>
+            <span class="nav-side-item">Système de freinage</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">家居</span> /
-            <span class="nav-side-item">家具</span> /
-            <span class="nav-side-item">家装</span> /
-            <span class="nav-side-item">厨具</span>
+            <span class="nav-side-item">Système d'allumage</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">男装</span> /
-            <span class="nav-side-item">女装</span> /
-            <span class="nav-side-item">童装</span> /
-            <span class="nav-side-item">内衣</span>
+            <span class="nav-side-item">Systèmes d'éclairage</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">美妆个护</span> /
-            <span class="nav-side-item">宠物</span>
+            <span class="nav-side-item">Transmission</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">女鞋</span> /
-            <span class="nav-side-item">箱包</span> /
-            <span class="nav-side-item">钟表</span> /
-            <span class="nav-side-item">珠宝</span>
+            <span class="nav-side-item">Système de suspension</span> /
+            <span class="nav-side-item">direction</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">男鞋</span> /
-            <span class="nav-side-item">运动</span> /
-            <span class="nav-side-item">户外</span>
+            <span class="nav-side-item">Système de refroidissement</span>
           </li>
+          <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">汽车</span> /
-            <span class="nav-side-item">汽车用品</span>
+            <span class="nav-side-item">Lubrifiant</span>
           </li>
-          <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">母婴</span> /
-            <span class="nav-side-item">玩具乐器</span>
-          </li>
-          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">食品</span> /
-            <span class="nav-side-item">酒类</span> /
-            <span class="nav-side-item">生鲜</span> /
-            <span class="nav-side-item">特产</span>
-          </li>
-          <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">礼品鲜花</span> /
-            <span class="nav-side-item">农资绿植</span>
-          </li>
-          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">医药保健</span> /
-            <span class="nav-side-item">计生情趣</span>
-          </li>
-          <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">图书</span> /
-            <span class="nav-side-item">音像</span> /
-            <span class="nav-side-item">电子书</span>
-          </li>
-        </ul>
+        </div>
       </div>
       <div class="nav-content">
         <!-- 幻灯片 -->
@@ -90,13 +61,13 @@
               </CarouselItem>
           </Carousel>
         </div>
-        <div class="nav-show">
-          <div class="nav-show-img" v-for="(item, index) in marketing.activity" :key="index">
-            <router-link to="/goodsList">
-              <img :src="item">
-            </router-link>
-          </div>
-        </div>
+<!--        <div class="nav-show">-->
+<!--          <div class="nav-show-img" v-for="(item, index) in marketing.activity" :key="index">-->
+<!--            <router-link to="/goodsList">-->
+<!--              <img :src="item">-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
     </div>
     <transition name="fade">
@@ -145,17 +116,17 @@ export default {
     return {
       panel1: false,
       panel2: false,
-      nav: [
-        '秒杀',
-        '优惠券',
-        '闪购',
-        '拍卖',
-        '服装城',
-        '超市',
-        '生鲜',
-        '全球购',
-        '金融'
-      ],
+      // nav: [
+      //   '秒杀',
+      //   '优惠券',
+      //   '闪购',
+      //   '拍卖',
+      //   '服装城',
+      //   '超市',
+      //   '生鲜',
+      //   '全球购',
+      //   '金融'
+      // ],
       panelData1: {
         navTags: [ '清洁用品', '美妆商城', '美妆馆', '妆比社', '全球购美妆', '宠物馆' ],
         classNav: [
@@ -301,7 +272,6 @@ export default {
   float: left;
   font-size: 16px;
   font-weight: bold;
-
   margin-left: 30px;
 }
 .nav-item a {
@@ -324,12 +294,19 @@ export default {
   color: #fff;
   float: left;
   background-color: #6e6568;
+  display: flex;
+  justify-content: space-between;
 }
-.nav-side ul {
+.nav-side-ul {
+  height: 100%;
   width: 100%;
   padding: 0px;
   padding-top: 15px;
   list-style: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
 }
 .nav-side li {
   padding: 7.5px;
@@ -344,7 +321,13 @@ export default {
   cursor: pointer;
   color: #c81623;
 }
-
+.spliter {
+  height: 1px;
+  width: 100%;
+  background-color: #999395;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
 /*导航内容*/
 .nav-content {
   width: 792px;

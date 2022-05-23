@@ -1,25 +1,13 @@
 <template>
   <div class="box">
     <div class="nav">
-      <ul class="location">
-        <li>
-          <Dropdown  placement="bottom-start">
-            <a href="javascript:void(0)">
-              <Icon type="ios-location" class="icon"></Icon> {{city}}
-            </a>
-            <DropdownMenu slot="list">
-              <div class="city">
-                <p v-for="(items, index) in cityArr" :key="index">
-                  <span v-for="(item, index) in items"  class="city-item" :key="index" @click="changeCity(item)">{{item}}</span>
-                </p>
-              </div>
-            </DropdownMenu>
-          </Dropdown>
-        </li>
-      </ul>
+      <div class="home">
+        <img src="@/asset/logo.png" class="logo">
+        <router-link to="/" class="go-to-home">Accueil</router-link>
+      </div>
       <ul class="detail">
         <li class="first" v-show="!userInfo.username">
-          你好，请<router-link to="/login">登录 <Icon type="person"></Icon></router-link> |<span class="text-color-red"><router-link to="/SignUp">免费注册 <Icon type="person-add"></Icon></router-link></span>
+          <router-link to="/login">Se connecter <Icon type="person"></Icon></router-link> |<span class="text-color-red"><router-link to="/SignUp">Enregistrer <Icon type="person-add"></Icon></router-link></span>
         </li>
         <li v-show="!!userInfo.username">
           <Dropdown>
@@ -30,11 +18,11 @@
                 <div class="my-page">
                   <div class="my-info" @click="myInfo">
                     <Icon type="home"></Icon>
-                    <p>我的主页</p>
+                    <p>Accueil</p>
                   </div>
                   <div class="sign-out" @click="signOutFun">
                     <Icon type="log-out"></Icon>
-                    <p>退出登录</p>
+                    <p>Déconnection</p>
                   </div>
                 </div>
             </DropdownMenu>
@@ -43,13 +31,12 @@
         <li>
           <Dropdown  placement="bottom-start">
             <a href="javascript:void(0)">
-              <Icon type="ios-cart-outline"></Icon> 购物车
+              <Icon type="ios-cart-outline"></Icon> Panier
             </a>
             <DropdownMenu slot="list">
               <div class="shopping-cart-null" v-show="shoppingCart.length <= 0">
                 <Icon type="ios-cart-outline" class="cart-null-icon"></Icon>
-                <span>你的购物车没有空空哦</span>
-                <span>赶快去添加商品吧~</span>
+                <span>Empty</span>
               </div>
               <div class="shopping-cart-list" v-show="shoppingCart.length > 0">
                 <div class="shopping-cart-box" v-for="(item,index) in shoppingCart" :key="index">
@@ -62,15 +49,15 @@
                     </div>
                     <div class="shopping-cart-detail">
                       <p>
-                        套餐:
+                        Menu:
                         <span class="shopping-cart-text">
                           {{item.package}}
                         </span>
-                        数量:
+                        Nombre:
                         <span class="shopping-cart-text">
                           {{item.count}}
                         </span>
-                        价钱:
+                        Prix:
                         <span class="shopping-cart-text">
                           {{item.price}}
                         </span>
@@ -80,16 +67,13 @@
                 </div>
                 <div class="go-to-buy">
                   <Button type="error" size="small" @click="goToPay">
-                    去结账
+                    Payer
                   </Button>
                 </div>
               </div>
             </DropdownMenu>
           </Dropdown>
         </li>
-        <li><router-link to="/">网站导航</router-link></li>
-        <li><router-link to="/freeback">意见反馈</router-link></li>
-        <li><router-link to="/">商城首页</router-link></li>
       </ul>
     </div>
   </div>
@@ -105,13 +89,6 @@ export default {
   },
   data () {
     return {
-      city: '珠海',
-      cityArr: [
-        ['北京', '上海', '天津', '重庆', '广州'],
-        ['深圳', '河南', '辽宁', '吉林', '江苏'],
-        ['江西', '四川', '海南', '贵州', '云南'],
-        ['西藏', '陕西', '甘肃', '青海', '珠海']
-      ]
     };
   },
   computed: {
@@ -119,9 +96,6 @@ export default {
   },
   methods: {
     ...mapActions(['signOut', 'isLogin']),
-    changeCity (city) {
-      this.city = city;
-    },
     goToPay () {
       this.$router.push('/order');
     },
@@ -140,8 +114,11 @@ export default {
 <style scoped>
 .box {
   width: 100%;
-  height: 35px;
-  background-color: #e3e4e5;
+  height: 50px;
+  background-color: black;
+  justify-content: center;
+  align-self: center;
+  display: flex;
 }
 .nav {
   margin: 0% auto;
@@ -162,22 +139,33 @@ export default {
 }
 .nav a {
   text-decoration: none;
-  color: #999999;
+  color: white;
   padding-left: 15px;
   border-left: 1px solid #ccc;
   cursor: pointer;
 }
-.location a {
-  border-left: none;
-}
 .nav a:hover {
   color: #d9534f;
 }
-.location {
-  color: #999999;
+.logo {
+  height: 40px;
+  width: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  vertical-align: middle;
 }
-.icon {
-  color: #d9534f;
+.home {
+  margin-left: 20px;
+}
+.go-to-home {
+  font-size: 15px;
+  line-height: 50px;
+  vertical-align: middle;
+}
+.detail {
+  display: flex;
+  align-self: center;
+  margin-right: 100px;
 }
 .first {
   color: #999999;
@@ -185,17 +173,6 @@ export default {
 .first a:first-child {
   padding-left: 3px;
   border-left: none;
-}
-.city {
-  padding: 10px 15px;
-}
-.city-item {
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px;
-}
-.city-item:hover {
-  color: #d9534f;
 }
 .person-icon {
   color: #d9534f;

@@ -4,43 +4,43 @@
       <div class="address-header">
         <span>{{item.name}}</span>
         <div class="address-action">
-          <span @click="edit(index)"><Icon type="edit"></Icon> 修改</span>
-          <span @click="del(index)"><Icon type="trash-a"></Icon> 删除</span>
+          <span @click="edit(index)"><Icon type="edit"></Icon> Modifier</span>
+          <span @click="del(index)"><Icon type="trash-a"></Icon> Annuler</span>
         </div>
       </div>
       <div class="address-content">
-        <p><span class="address-content-title"> 收 货 人 :</span> {{item.name}}</p>
-        <p><span class="address-content-title">收货地区:</span> {{item.province}} {{item.city}} {{item.area}}</p>
-        <p><span class="address-content-title">收货地址:</span> {{item.address}}</p>
-        <p><span class="address-content-title">邮政编码:</span> {{item.postalcode}}</p>
+        <p><span class="address-content-title">Destinataire:</span> {{item.name}}</p>
+        <p><span class="address-content-title">Zone de réception:</span> {{item.province}} {{item.city}} {{item.area}}</p>
+        <p><span class="address-content-title">Adress de livraision:</span> {{item.address}}</p>
+        <p><span class="address-content-title">Code postal:</span> {{item.postalcode}}</p>
       </div>
     </div>
     <Modal v-model="modal" width="530">
         <p slot="header">
           <Icon type="edit"></Icon>
-          <span>修改地址</span>
+          <span>Modifier d'adresse</span>
         </p>
         <div>
             <Form :model="formData" label-position="left" :label-width="100" :rules="ruleInline">
-              <FormItem label="收件人" prop="name">
+              <FormItem label="Destinataire" prop="name">
                 <i-input v-model="formData.name" size="large"></i-input>
               </FormItem>
-              <FormItem label="收件地区" prop="address">
+              <FormItem label="Zone" prop="address">
                 <Distpicker :province="formData.province" :city="formData.city" :area="formData.area" @province="getProvince" @city="getCity" @area="getArea"></Distpicker>
               </FormItem>
-              <FormItem label="收件地址" prop="address">
+              <FormItem label="Adresse" prop="address">
                 <i-input v-model="formData.address" size="large"></i-input>
               </FormItem>
-              <FormItem label="手机号码" prop="phone">
+              <FormItem label="Tel" prop="phone">
                 <i-input v-model="formData.phone" size="large"></i-input>
               </FormItem>
-              <FormItem label="邮政编码" prop="postalcode">
+              <FormItem label="CodePostal" prop="postalcode">
                 <i-input v-model="formData.postalcode" size="large"></i-input>
               </FormItem>
             </Form>
         </div>
         <div slot="footer">
-            <Button type="primary" size="large" long @click="editAction">修改</Button>
+            <Button type="primary" size="large" long @click="editAction">Modifier</Button>
         </div>
     </Modal>
   </div>
@@ -66,17 +66,17 @@ export default {
       },
       ruleInline: {
         name: [
-          { required: true, message: '请输入姓名', trigger: 'blur' }
+          { required: true, message: 'Nom', trigger: 'blur' }
         ],
         address: [
-          { required: true, message: '请输入地址', trigger: 'blur' }
+          { required: true, message: 'Adresse', trigger: 'blur' }
         ],
         postalcode: [
-          { required: true, message: '请输入邮政编码', trigger: 'blur' }
+          { required: true, message: 'Code Postal', trigger: 'blur' }
         ],
         phone: [
-          { required: true, message: '手机号不能为空', trigger: 'blur' },
-          { type: 'string', pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: '手机号格式出错', trigger: 'blur' }
+          { required: true, message: 'Le numéro de portable ne peut pas être vide', trigger: 'blur' },
+          { type: 'string', pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: 'Mauvais format', trigger: 'blur' }
         ]
       }
     };
@@ -101,17 +101,17 @@ export default {
     },
     editAction () {
       this.modal = false;
-      this.$Message.success('修改成功');
+      this.$Message.success('Succès');
     },
     del (index) {
       this.$Modal.confirm({
-        title: '信息提醒',
-        content: '你确定删除这个收货地址',
+        title: 'Attention',
+        content: 'Voulez-vous vraiment supprimer cette adresse ?',
         onOk: () => {
-          this.$Message.success('删除成功');
+          this.$Message.success('Succès');
         },
         onCancel: () => {
-          this.$Message.info('取消删除');
+          this.$Message.info('Annuler');
         }
       });
     }

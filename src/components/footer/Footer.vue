@@ -5,29 +5,29 @@
       <div class="icon-row">
         <div class="footer-icon">
           <h5 class="footer-icon-child"></h5>
-          <span class="footer-icon-text">品类齐全，轻松购物</span>
+          <span class="footer-icon-text">Assortiment complet</span>
         </div>
         <div class="footer-icon">
           <h5 class="footer-icon-child footer-icon-child-2"></h5>
-          <span class="footer-icon-text">多仓直发，极速配送</span>
+          <span class="footer-icon-text">Livraison rapide</span>
         </div>
         <div class="footer-icon">
           <h5 class="footer-icon-child footer-icon-child-3"></h5>
-          <span class="footer-icon-text">正品行货，精致服务</span>
+          <span class="footer-icon-text">Service exquis</span>
         </div>
         <div class="footer-icon">
           <h5 class="footer-icon-child footer-icon-child-4"></h5>
-          <span class="footer-icon-text">天天低价，畅选无忧</span>
+          <span class="footer-icon-text">Libre choix</span>
         </div>
       </div>
       <div class="service-intro">
-        <div class="servece-type">
-          <div class="servece-type-info" v-for="(guide, index) in guideArr" :key="index">
-            <ul>
-              <li v-for="(item, index) in guide" :key="index">{{item}}</li>
-            </ul>
-          </div>
-        </div>
+<!--        <div class="servece-type">-->
+<!--          <div class="servece-type-info" v-for="(guide, index) in guideArr" :key="index">-->
+<!--            <ul>-->
+<!--              <li v-for="(item, index) in guide" :key="index">{{item}}</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="clearfix"></div>
         <div class="friend-link">
           <div class="friend-link-item">
@@ -39,8 +39,9 @@
           </div>
         </div>
         <div class="clearfix"></div>
+        <img src="@/asset/logo.png" class="footer-logo">
         <div class="copyright">
-          <p>Copyright © 2018 by Gavin <a href="https://github.com/PowerDos"><Icon type="social-github"></Icon></a> <span>本项目仅供学习参考</span></p>
+          <p>Copyright © 2022 by Yonghui <a href="https://github.com/PowerDos"><Icon type="social-github"></Icon></a> <span>MO54A22</span></p>
         </div>
       </div>
     </footer>
@@ -53,14 +54,14 @@ export default {
   data () {
     return {
       linkItemClass: 'link-item',
-      guideArr: [
-        [ '购物指南', '购物流程', '会员介绍', '生活旅行', '常见问题', '大家电', '联系客服' ],
-        [ '配送方式', '上门自提', '211限时达', '配送服务查询', '收取标准', '海外配送' ],
-        [ '支付方式', '货到付款', '在线支付', '分期付款', '邮局汇款', '公司转账' ],
-        [ '售后服务', '售后政策', '价格保护', '退款说明', '返修/退换货', '取消订单' ]
-      ],
+      // guideArr: [
+      //   [ '购物指南', '购物流程', '会员介绍', '生活旅行', '常见问题', '大家电', '联系客服' ],
+      //   [ '配送方式', '上门自提', '211限时达', '配送服务查询', '收取标准', '海外配送' ],
+      //   [ '支付方式', '货到付款', '在线支付', '分期付款', '邮局汇款', '公司转账' ],
+      //   [ '售后服务', '售后政策', '价格保护', '退款说明', '返修/退换货', '取消订单' ]
+      // ],
       moreLink: [
-        '关于我们', '联系我们', '联系客服', '合作招商', '商家帮助', '营销中心', '销售联盟', '校园社区', '风险监测', '隐私政策'
+        'A propos', 'Nous contacter', 'Contactez le service', 'Nous rejoindre', 'Politique'
       ]
     };
   }
@@ -68,18 +69,18 @@ export default {
 </script>
 
 <style scoped>
-/*****************************底 部 开 始*****************************/
 .footer {
   width: 100%;
-  height: 390px;
-  margin-top: 30px;
+  height: 250px;
   background-color: #eaeaea;
 }
 .icon-row {
-  margin: 15px auto;
+  margin: 0px auto 15px;
   padding-top: 8px;
   width: 1000px;
   height: 64px;
+  display: flex;
+  justify-content: space-between;
 }
 .footer-icon {
   margin-left: 17px;
@@ -114,6 +115,8 @@ export default {
 .service-intro {
   width: 100%;
   border-top: 1px solid #b2dfdb;
+  display: flex;
+  flex-direction: column;
 }
 .servece-type {
   margin: 15px auto;
@@ -144,9 +147,9 @@ export default {
   align-items: center;
   width: 908px;
   height: 30px;
-  margin: 0px auto;
+  margin: 20px auto 0px;
   color: #666;
-  border-top: 1px solid #b2dfdb;
+  /*border-top: 1px solid #b2dfdb;*/
 }
 .friend-link-item {
   margin: 0px auto;
@@ -166,6 +169,12 @@ export default {
 .link-last-item {
   border: none;
 }
+.footer-logo {
+  height: 50px;
+  width: 50px;
+  align-self: center;
+  line-height: 50px;
+}
 .copyright {
   width: 100%;
   color: #666;
@@ -176,5 +185,4 @@ export default {
   color: #232323;
   font-size: 20px;
 }
-/*****************************底 部 结 束*****************************/
 </style>

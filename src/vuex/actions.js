@@ -53,11 +53,10 @@ export const loadCarouselItems = ({ commit }) => {
   return new Promise((resolve, reject) => {
     const data = {
       carouselItems: [
-        'static/img/nav/1.jpg',
-        'static/img/nav/2.jpg',
-        'static/img/nav/3.jpg',
-        'static/img/nav/4.jpg',
-        'static/img/nav/5.jpg'
+        'static/img/nav/1.png',
+        'static/img/nav/2.png',
+        'static/img/nav/3.png',
+        'static/img/nav/4.png'
       ],
       activity: [
         'static/img/nav/nav_showimg1.jpg',
