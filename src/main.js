@@ -4,8 +4,10 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import iView from 'iview';
+import Axios from 'axios';
 import 'iview/dist/styles/iview.css';
 
+Vue.prototype.$axios = Axios;
 Vue.use(iView);
 Vue.config.productionTip = false;
 
