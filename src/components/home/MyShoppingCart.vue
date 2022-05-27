@@ -21,7 +21,7 @@ export default {
           align: 'center'
         },
         {
-          title: '图片',
+          title: 'photo',
           key: 'img',
           width: 86,
           render: (h, params) => {
@@ -36,24 +36,24 @@ export default {
           align: 'center'
         },
         {
-          title: '标题',
+          title: 'titre',
           key: 'title',
           align: 'center'
         },
         {
-          title: '套餐',
+          title: 'menu',
           width: 198,
           key: 'package',
           align: 'center'
         },
         {
-          title: '数量',
+          title: 'nombre',
           key: 'count',
           width: 68,
           align: 'center'
         },
         {
-          title: '价格',
+          title: 'prix',
           width: 68,
           key: 'price',
           align: 'center'

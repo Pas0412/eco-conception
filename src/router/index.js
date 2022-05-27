@@ -12,7 +12,7 @@ const ShoppingCart = resolve => require(['@/components/ShoppingCart'], resolve);
 const Order = resolve => require(['@/components/Order'], resolve);
 const Pay = resolve => require(['@/components/Pay'], resolve);
 const PayDone = resolve => require(['@/components/PayDone'], resolve);
-const Freeback = resolve => require(['@/components/Freeback'], resolve);
+const Feedback = resolve => require(['@/components/Feedback'], resolve);
 const Home = resolve => require(['@/components/Home'], resolve);
 const MyAddress = resolve => require(['@/components/home/MyAddress'], resolve);
 const AddAddress = resolve => require(['@/components/home/AddAddress'], resolve);
@@ -92,9 +92,9 @@ export default new Router({
       component: PayDone
     },
     {
-      path: '/freeback', // 反馈页面
-      name: 'Freeback',
-      component: Freeback
+      path: '/feedback', // 反馈页面
+      name: 'Feedback',
+      component: Feedback
     },
     {
       path: '/home', // 主页

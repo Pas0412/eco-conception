@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <i-input v-model="searchData" size="large" class="search" placeholder="   Rechercher">
-        <Button slot="append" icon="ios-search" @click="sreach"></Button>
+        <Button slot="append" icon="ios-search" @click="search"></Button>
       </i-input>
     </div>
   </div>

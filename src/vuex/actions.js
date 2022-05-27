@@ -1,3 +1,5 @@
+// import { getPieces } from '@/network/pieces/pieces';
+import axios from 'axios';
 // 获取秒杀数据
 export const loadSeckillsInfo = ({ commit }) => {
   return new Promise((resolve, reject) => {
@@ -64,6 +66,17 @@ export const loadCarouselItems = ({ commit }) => {
       ]
     };
     commit('SET_CAROUSELITEMS_INFO', data);
+  });
+};
+
+export const getAllPieces = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type=text').then(response => {
+      pieces = response.data;
+      console.log(pieces);
+      commit('SET_PIECES', pieces);
+    }).catch(error => console.log(error));
   });
 };
 

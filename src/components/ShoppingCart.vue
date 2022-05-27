@@ -8,7 +8,7 @@
         <div class="add-info-detail">
           <div class="add-info-title">
             <p>
-              <i class="fa fa-check-circle"></i> 商品已成功加入购物车！</p>
+              <i class="fa fa-check-circle"></i> L’article a été ajouté avec succès au panier！</p>
           </div>
           <div class="add-info-box-row">
             <div class="add-info-img">
@@ -16,7 +16,7 @@
             </div>
             <div class="add-info-intro">
               <p>{{newShoppingCart.title}} {{newShoppingCart.package.intro}}...</p>
-              <p class="add-info-intro-detail">颜色：{{newShoppingCart.package.intro}}/ 数量：{{newShoppingCart.count}}</p>
+              <p class="add-info-intro-detail">Couleur：{{newShoppingCart.package.intro}}/ Nombre：{{newShoppingCart.count}}</p>
             </div>
           </div>
         </div>
@@ -24,10 +24,10 @@
           <div></div>
           <div class="car-btn-row">
             <router-link to="/goodsDetail">
-              <button class="btn-car btn-car-to-detail">查看商品详情</button>
+              <button class="btn-car btn-car-to-detail">Voir les détails du produit</button>
             </router-link>
             <router-link to="/order">
-              <button class="btn-car btn-car-to-pay">去购物车结算 > </button>
+              <button class="btn-car btn-car-to-pay">Aller au panier pour vérifier > </button>
             </router-link>
           </div>
         </div>
@@ -35,7 +35,7 @@
     </div>
     <div class="other-user-buy-box">
       <div class="other-user-buy-title">
-        <p>可以顺便看下其他商品哦 ~</p>
+        <p>Vous pouvez jeter un coup d’œil à d’autres produits d’ailleurs :)</p>
       </div>
       <div class="other-user-buy-row" v-for="(items,index1) in recommend" :key="index1">
         <div class="other-user-buy-item-box" v-for="(item,index2) in items" :key="index2">
@@ -53,7 +53,7 @@
             </div>
             <div class="other-buy-btn-box">
               <router-link to="/goodsDetail">
-                <button class="other-buy-btn"><Icon type="ios-cart"></Icon> 加入购物车</button>
+                <button class="other-buy-btn"><Icon type="ios-cart"></Icon> Ajouter au panier</button>
               </router-link>
             </div>
           </div>

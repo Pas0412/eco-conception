@@ -30,7 +30,7 @@ export default {
           align: 'center'
         },
         {
-          title: '图片',
+          title: 'photo',
           key: 'img',
           width: 86,
           render: (h, params) => {

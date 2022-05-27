@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Sreach from '@/components/Sreach';
+import Search from '@/components/Search';
 export default {
   name: 'HelloWorld',
   data () {
@@ -23,7 +23,7 @@ export default {
     };
   },
   components: {
-    Sreach
+    Search
   }
 };
 </script>

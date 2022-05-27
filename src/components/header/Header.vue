@@ -30,7 +30,7 @@
         </li>
         <li>
           <Dropdown  placement="bottom-start">
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)"  @click="goToPanier">
               <Icon type="ios-cart-outline"></Icon> Panier
             </a>
             <DropdownMenu slot="list">
@@ -86,18 +86,25 @@ export default {
   name: 'M-Header',
   created () {
     this.isLogin();
+    this.getAllPieces();
   },
   data () {
     return {
     };
   },
+  mounted () {
+  },
   computed: {
-    ...mapState(['userInfo', 'shoppingCart'])
+    ...mapState(['userInfo', 'shoppingCart', 'piecesList'])
   },
   methods: {
-    ...mapActions(['signOut', 'isLogin']),
+    ...mapActions(['signOut', 'isLogin', 'getAllPieces']),
     goToPay () {
-      this.$router.push('/order');
+      if (this.userInfo.username) {
+        this.$router.push('/order');
+      } else {
+        this.$router.push('/login');
+      }
     },
     myInfo () {
       this.$router.push('/home');
@@ -105,6 +112,11 @@ export default {
     signOutFun () {
       this.signOut();
       this.$router.push('/');
+    },
+    goToPanier () {
+      if (this.userInfo.username) {
+        this.$router.push('/home/myShoppingCart');
+      }
     }
   },
   store
@@ -119,6 +131,9 @@ export default {
   justify-content: center;
   align-self: center;
   display: flex;
+}
+.test {
+  color: white;
 }
 .nav {
   margin: 0% auto;

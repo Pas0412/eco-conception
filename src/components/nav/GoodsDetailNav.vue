@@ -15,7 +15,7 @@ export default {
   name: 'GoodsDetailNav',
   data () {
     return {
-      shopNav: [ '首页', 'iPhoneX', 'iPhone8', 'OnePlus', '坚果Pro', 'Note8' ]
+      shopNav: [ 'Accueil', 'iPhoneX', 'iPhone8', 'OnePlus', '坚果Pro', 'Note8' ]
     };
   }
 };

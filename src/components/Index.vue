@@ -145,7 +145,8 @@ export default {
   },
   data () {
     return {
-      setIntervalObj: null
+      setIntervalObj: null,
+      pieceList: []
     };
   },
   methods: {

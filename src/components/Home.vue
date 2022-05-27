@@ -7,29 +7,29 @@
             <div class="user-img">
               <img src="static/img/head.png">
             </div>
-            <p>Gavin</p>
+            <p>Yonghui</p>
           </div>
           <Submenu name="1">
             <template slot="title">
                 <Icon type="location"></Icon>
-                <span>收货地址</span>
+                <span>Adresse</span>
             </template>
-            <MenuItem name="myAddress">我的收货地址</MenuItem>
-            <MenuItem name="addAddress">添加收货地址</MenuItem>
+            <MenuItem name="myAddress">Mon adresse</MenuItem>
+            <MenuItem name="addAddress">Ajouter</MenuItem>
           </Submenu>
           <Submenu name="2">
             <template slot="title">
-                <Icon type="clipboard"></Icon>
-                <span>购物订单</span>
+              <Icon type="clipboard"></Icon>
+              <span>Ordre</span>
             </template>
-            <MenuItem name="myOrder">我的订单</MenuItem>
+            <MenuItem name="myOrder">Mon ordre</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template slot="title">
                 <Icon type="ios-cart"></Icon>
-                <span>购物车</span>
+                <span>Panier</span>
             </template>
-            <MenuItem name="myShoppingCart">我的购物车</MenuItem>
+            <MenuItem name="myShoppingCart">Mon panier</MenuItem>
           </Submenu>
         </Menu>
       </Sider>
@@ -42,7 +42,7 @@
             <router-view></router-view>
           </transition>
         </Content>
-        <Footer class="layout-footer-center">2018 &copy; Gavin</Footer>
+        <Footer class="layout-footer-center">2022 &copy; Yonghui</Footer>
       </Layout>
     </Layout>
   </div>
@@ -53,12 +53,12 @@ export default {
   name: 'Home',
   data () {
     return {
-      activeTitle: '我的订单',
+      activeTitle: 'Mon ordre',
       bar: {
-        'myAddress': '我的收货地址',
-        'addAddress': '添加收货地址',
-        'myOrder': '我的订单',
-        'myShoppingCart': '我的购物车'
+        'myAddress': 'Mon adresse',
+        'addAddress': 'Ajouter',
+        'myOrder': 'Mon ordre',
+        'myShoppingCart': 'Mon panier'
       }
     };
   },

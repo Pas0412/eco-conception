@@ -3,23 +3,13 @@
     <div class="shop-container">
       <div class="shop-title">
         <div class="shop-title-icon">
-          <Icon type="fireball"></Icon>
+<!--          <Icon type="fireball"></Icon>-->
+          <img src="@/asset/logo.png" class="shop-header-logo">
           <i class="fa fa-fire"></i>
         </div>
         <div class="shop-title-content">
           <p><router-link to="/merchant">{{ shopIntro.shopName }}</router-link></p>
           <p><router-link to="/merchant">{{ shopIntro.slogen }}</router-link></p>
-        </div>
-      </div>
-      <div class="shop-another-item">
-        <div class="shop-another-item-detail" v-for="(item, index) in shopIntro.showGoods" :key="index">
-          <div class="shop-another-item-img">
-            <img :src="item.img" alt="">
-          </div>
-          <div class="shop-anoter-item-intro">
-            <p>{{ item.intro[0] }}</p>
-            <p>{{ item.intro[1] }}</p>
-          </div>
         </div>
       </div>
     </div>
@@ -32,22 +22,8 @@ export default {
   data () {
     return {
       shopIntro: {
-        shopName: 'Gavin Shop',
-        slogen: 'The Best Thing For You',
-        showGoods: [
-          {
-            img: 'static/img/goodsList/item-show-1.jpg',
-            intro: [ '全身磨砂', '防指纹' ]
-          },
-          {
-            img: 'static/img/goodsList/item-show-2.jpg',
-            intro: [ '环保PP材质', '不发黄' ]
-          },
-          {
-            img: 'static/img/goodsList/item-show-3.jpg',
-            intro: [ '0.4mm纤细', '纤薄手感' ]
-          }
-        ]
+        shopName: 'Eco-conception',
+        slogen: 'The Best Thing For You'
       }
     };
   }
@@ -60,6 +36,12 @@ export default {
   width: 100%;
   height: 120px;
   background-color: #484848;
+}
+
+.shop-header-logo {
+  height: 80px;
+  width: 80px;
+  vertical-align: middle;
 }
 
 .shop-container {
@@ -76,6 +58,8 @@ export default {
 .shop-title {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-self: center;
 }
 
 .shop-title-icon {
@@ -83,12 +67,13 @@ export default {
 }
 
 .shop-title-content {
-  padding-top: 8px;
   margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 .shop-title-content p {
-  line-height: 26px;
   font-size: 20px;
 }
 

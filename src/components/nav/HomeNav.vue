@@ -12,41 +12,55 @@
       <div class="nav-side" ref="navSide">
         <div class="nav-side-ul">
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">Système de filtration</span>
+            <span class="nav-side-item">Freinage</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">Appareils</span> /
-            <span class="nav-side-item">Accessoires de carrosserie</span>
+            <span class="nav-side-item">Filtration</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">Système de freinage</span>
+            <span class="nav-side-item">Moteur</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">Système d'allumage</span>
+            <span class="nav-side-item">Embrayage, boite de vitesse, cardans</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">Systèmes d'éclairage</span>
+            <span class="nav-side-item">Demarrage et charge</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">Transmission</span>
+            <span class="nav-side-item">Echappement</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">Système de suspension</span> /
-            <span class="nav-side-item">direction</span>
+            <span class="nav-side-item">Direction / Suspension / Roulements</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(2)" @mouseleave="hideDetail(2)">
-            <span class="nav-side-item">Système de refroidissement</span>
+            <span class="nav-side-item">Visibilite</span>
           </li>
           <div class="spliter"></div>
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
-            <span class="nav-side-item">Lubrifiant</span>
+            <span class="nav-side-item">Chauffage et climatisation</span>
+          </li>
+          <div class="spliter"></div>
+          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
+            <span class="nav-side-item">Habitacle</span>
+          </li>
+          <div class="spliter"></div>
+          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
+            <span class="nav-side-item">Accessoires et portage</span>
+          </li>
+          <div class="spliter"></div>
+          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
+            <span class="nav-side-item">Jantes & routes</span>
+          </li>
+          <div class="spliter"></div>
+          <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)">
+            <span class="nav-side-item">Carrosserie</span>
           </li>
         </div>
       </div>

@@ -6,9 +6,9 @@
       <div class="bread-crumb">
         <Breadcrumb>
           <BreadcrumbItem to="/">
-            <Icon type="ios-home-outline"></Icon> 首页
+            <Icon type="ios-home-outline"></Icon> Accueil
           </BreadcrumbItem>
-          <BreadcrumbItem to="/goodsList?sreachData=">
+          <BreadcrumbItem to="/goodsList?searchData=">
             <Icon type="bag"></Icon> {{searchItem}}
           </BreadcrumbItem>
         </Breadcrumb>
@@ -122,7 +122,7 @@ export default {
     this.loadGoodsList();
   },
   mounted () {
-    this.searchItem = this.$route.query.sreachData;
+    this.searchItem = this.$route.query.searchData;
   },
   components: {
     Search,

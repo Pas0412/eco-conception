@@ -4,13 +4,13 @@
     <GoodsListNav></GoodsListNav>
     <div class="goods-list-container">
       <Alert show-icon class="tips-box">
-        小提示
+        Conseils
         <Icon type="ios-lightbulb-outline" slot="icon"></Icon>
-        <template slot="desc">请点击商品前的选择框，选择购物车中的商品，点击付款即可。</template>
+        <template slot="desc">Veuillez cliquer sur la case de sélection devant l’article, sélectionnez l’article dans votre panier, puis cliquez sur Payer.</template>
       </Alert>
-      <Table border ref="selection" :columns="columns" :data="shoppingCart" size="large" @on-selection-change="select" no-data-text="您的购物车没有商品，请先添加商品到购物车再点击购买"></Table>
+      <Table border ref="selection" :columns="columns" :data="shoppingCart" size="large" @on-selection-change="select" no-data-text="Votre panier n’a pas d’articles, veuillez ajouter des articles à votre panier avant de cliquer sur Acheter"></Table>
       <div class="address-container">
-        <h3>收货人信息</h3>
+        <h3>Info destinataire</h3>
         <div class="address-box">
           <div class="address-check">
             <div class="address-check-name">
@@ -22,7 +22,7 @@
           </div>
           <Collapse>
             <Panel>
-                选择地址
+                Choisir adresse
                 <p slot="content">
                   <RadioGroup vertical size="large" @on-change="changeAddress">
                     <Radio :label="item.addressId" v-for="(item, index) in address" :key="index">
@@ -35,18 +35,18 @@
         </div>
       </div>
       <div class="remarks-container">
-        <h3>备注</h3>
-        <i-input v-model="remarks" size="large" placeholder="在这里填写备注信息" class="remarks-input"></i-input>
+        <h3>Notes</h3>
+        <i-input v-model="remarks" size="large" placeholder="Remplissez les notes ici" class="remarks-input"></i-input>
       </div>
       <div class="invoices-container">
-        <h3>发票信息</h3>
-        <p>该商品不支持开发票</p>
+        <h3>Informations sur la facture</h3>
+        <p>Ce produit ne prend pas en charge la facturation</p>
       </div>
       <div class="pay-container">
         <div class="pay-box">
-          <p><span>提交订单应付总额：</span> <span class="money"><Icon type="social-yen"></Icon> {{totalPrice.toFixed(2)}}</span></p>
+          <p><span>Soumettre le montant total dû à la commande：</span> <span class="money"><Icon type="social-yen"></Icon> {{totalPrice.toFixed(2)}}</span></p>
           <div class="pay-btn">
-            <router-link to="/pay"><Button type="error" size="large">支付订单</Button></router-link>
+            <router-link to="/pay"><Button type="error" size="large">Payer</Button></router-link>
           </div>
         </div>
       </div>
@@ -93,32 +93,32 @@ export default {
           align: 'center'
         },
         {
-          title: '标题',
+          title: 'titre',
           key: 'title',
           align: 'center'
         },
         {
-          title: '套餐',
+          title: 'menu',
           width: 198,
           key: 'package',
           align: 'center'
         },
         {
-          title: '数量',
+          title: 'nombre',
           key: 'count',
           width: 68,
           align: 'center'
         },
         {
-          title: '价格',
+          title: 'prix',
           width: 68,
           key: 'price',
           align: 'center'
         }
       ],
       checkAddress: {
-        name: '未选择',
-        address: '请选择地址'
+        name: 'pas de choix',
+        address: 'choisir d\'adresse'
       },
       remarks: ''
     };

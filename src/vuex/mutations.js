@@ -1,3 +1,7 @@
+export const SET_PIECES = (state, data) => {
+  state.piecesList = data;
+};
+
 // 设置注册步骤
 export const SET_SIGN_UP_SETP = (state, step) => {
   state.signUpStep = step;

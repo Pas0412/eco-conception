@@ -44,7 +44,7 @@ npm run build
 ```
 ### Using Docker
 ```
-docker run -d -p 80:80 --name mall-web registry.cn-beijing.aliyuncs.com/w929732982/mall-web 
+docker run -d -p 80:80 --name mall-web registry.cn-beijing.aliyuncs.com/w929732982/mall-web
 ```
 > view url:  http://127.0.0.1
 
@@ -58,7 +58,7 @@ docker run -d -p 80:80 --name mall-web registry.cn-beijing.aliyuncs.com/w9297329
 - [x] [确认订单页面 ORDER PAGE](#确认订单页面-order-page)
 - [x] [支付页面 PAY PAGE](#支付页面-pay-page)
 - [x] [购买成功页面 SUCCESS PAGE](#购买成功页面-success-page)
-- [x] [反馈页面 FREEBACK PACE](#%E5%8F%8D%E9%A6%88%E9%A1%B5%E9%9D%A2-freeback-page)
+- [x] [反馈页面 FEEDBACK PACE](#%E5%8F%8D%E9%A6%88%E9%A1%B5%E9%9D%A2-feedback-page)
 - [x] [商家店铺页面 MERCHANT PAGE](#商家店铺页面-merchant-page)
 - [x] [用户页面 USER PAGE](#用户页面-user-page)
 
@@ -91,7 +91,7 @@ docker run -d -p 80:80 --name mall-web registry.cn-beijing.aliyuncs.com/w9297329
 ### 购买成功页面 SUCCESS PAGE
 ![购买成功页面](https://i.imgur.com/tOATGZP.png)
 
-### 反馈页面 FREEBACK PACE
+### 反馈页面 FEEDBACK PACE
 ![反馈页面](https://i.imgur.com/fbOZAH8.png)
 
 ### 商家店铺页面 MERCHANT PAGE
