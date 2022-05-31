@@ -184,7 +184,6 @@ export const getPieces11 = ({ commit }) => {
     let pieces;
     axios.get('http://localhost:8084/queryAllPieceByType?type1=Jantes %26 roues').then(response => {
       pieces = response.data;
-      console.log(pieces);
       commit('SET_PIECES_11', pieces);
     }).catch(error => console.log(error));
   });
