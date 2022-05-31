@@ -24,13 +24,13 @@ export default {
       }],
       columns: [
         {
-          title: '订单号',
+          title: 'Numéro de commande',
           key: 'order_id',
-          width: 180,
+          width: 190,
           align: 'center'
         },
         {
-          title: 'photo',
+          title: 'Photo',
           key: 'img',
           width: 86,
           render: (h, params) => {
@@ -45,30 +45,30 @@ export default {
           align: 'center'
         },
         {
-          title: '标题',
+          title: 'Titre',
           key: 'title',
           align: 'center'
         },
         {
-          title: '套餐',
+          title: 'Menu',
           width: 198,
           key: 'package',
           align: 'center'
         },
         {
-          title: '数量',
+          title: 'Nombre',
           key: 'count',
-          width: 68,
+          width: 98,
           align: 'center'
         },
         {
-          title: '价格',
+          title: 'Prix',
           width: 68,
           key: 'price',
           align: 'center'
         },
         {
-          title: '购买时间',
+          title: 'Moment de l\'achat',
           width: 120,
           key: 'createAt',
           align: 'center'

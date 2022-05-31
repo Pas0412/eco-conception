@@ -1,5 +1,62 @@
-export const SET_PIECES = (state, data) => {
-  state.piecesList = data;
+// set 13 types of pieces
+export const SET_CHILDTYPE = (state, data) => {
+  state.childType = data;
+};
+
+export const SET_PIECES_0 = (state, data) => {
+  state.piecesList0 = data;
+};
+
+export const SET_PIECES_1 = (state, data) => {
+  state.piecesList1 = data;
+};
+
+export const SET_PIECES_2 = (state, data) => {
+  state.piecesList2 = data;
+};
+
+export const SET_PIECES_3 = (state, data) => {
+  state.piecesList3 = data;
+};
+
+export const SET_PIECES_4 = (state, data) => {
+  state.piecesList4 = data;
+};
+
+export const SET_PIECES_5 = (state, data) => {
+  state.piecesList5 = data;
+};
+
+export const SET_PIECES_6 = (state, data) => {
+  state.piecesList6 = data;
+};
+
+export const SET_PIECES_7 = (state, data) => {
+  state.piecesList7 = data;
+};
+
+export const SET_PIECES_8 = (state, data) => {
+  state.piecesList8 = data;
+};
+
+export const SET_PIECES_9 = (state, data) => {
+  state.piecesList9 = data;
+};
+
+export const SET_PIECES_10 = (state, data) => {
+  state.piecesList10 = data;
+};
+
+export const SET_PIECES_11 = (state, data) => {
+  state.piecesList11 = data;
+};
+
+export const SET_PIECES_12 = (state, data) => {
+  state.piecesList12 = data;
+};
+
+export const SET_POPULAR_LIST = (state, data) => {
+  state.popularList = data;
 };
 
 // 设置注册步骤

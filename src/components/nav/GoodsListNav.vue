@@ -1,20 +1,7 @@
 <template>
   <div>
     <div class="search-nav">
-      <div class="search-nav-container">
-        <ul>
-          <li>全部商品分类</li>
-          <li><router-link to="/">首页</router-link></li>
-          <li><router-link to="/">服装城</router-link></li>
-          <li><router-link to="/">美妆馆</router-link></li>
-          <li><router-link to="/">BIT超市</router-link></li>
-          <li><router-link to="/">生鲜</router-link></li>
-          <li><router-link to="/">全球购</router-link></li>
-          <li><router-link to="/">闪购</router-link></li>
-          <li><router-link to="/">拍卖</router-link></li>
-          <li><router-link to="/">金融</router-link></li>
-        </ul>
-      </div>
+      <div class="search-nav-container"></div>
     </div>
   </div>
 </template>
@@ -35,7 +22,7 @@ export default {
   width: 80%;
   min-width: 1000px;
   height: 64px;
-  margin: 0px auto;
+  margin-left: 50px;
 }
 .search-nav-container-90{
   width: 90%;
@@ -47,7 +34,7 @@ export default {
 }
 .search-nav-container li{
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 10px;
   line-height: 64px;
   color: #C81623;
   font-size: 18px;

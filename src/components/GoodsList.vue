@@ -14,62 +14,632 @@
         </Breadcrumb>
       </div>
       <!-- 商品标签导航 -->
-      <GoodsClassNav></GoodsClassNav>
-      <!-- 商品展示容器 -->
-      <div class="goods-box">
-        <div class="as-box">
-          <div class="item-as-title">
-            <span>商品精选</span>
-            <span>广告</span>
-          </div>
-          <div class="item-as" v-for="(item,index) in asItems" :key="index">
-            <div class="item-as-img">
-              <img :src="item.img" alt="">
-            </div>
-            <div class="item-as-price">
+      <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick" class="tab-container">
+        <el-tab-pane label="Freinage" name="first">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[0]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
               <span>
-                <Icon type="social-yen text-danger"></Icon>
                 <span class="seckill-price text-danger">{{item.price}}</span>
               </span>
-            </div>
-            <div class="item-as-intro">
-              <span>{{item.intro}}</span>
-            </div>
-            <div class="item-as-selled">
-              已有<span>{{item.num}}</span>人评价
-            </div>
-          </div>
-        </div>
-        <div class="goods-list-box">
-          <div class="goods-list-tool">
-            <ul>
-              <li v-for="(item,index) in goodsTool" :key="index" @click="orderBy(item.en, index)"><span :class="{ 'goods-list-tool-active': isAction[index]}">{{item.title}} <Icon :type="icon[index]"></Icon></span></li>
-            </ul>
-          </div>
-          <div class="goods-list">
-            <div class="goods-show-info" v-for="(item, index) in orderGoodsList" :key="index">
-              <div class="goods-show-img">
-                <router-link to="/goodsDetail"><img :src="item.img"/></router-link>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
               </div>
-              <div class="goods-show-price">
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList0" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
                 <span>
-                  <Icon type="social-yen text-danger"></Icon>
                   <span class="seckill-price text-danger">{{item.price}}</span>
                 </span>
-              </div>
-              <div class="goods-show-detail">
-                <span>{{item.intro}}</span>
-              </div>
-              <div class="goods-show-num">
-                已有<span>{{item.remarks}}</span>人评价
-              </div>
-              <div class="goods-show-seller">
-                <span>{{item.shopName}}</span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </el-tab-pane>
+        <el-tab-pane label="Filtration" name="second">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[1]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList1" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Moteur" name="third">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[2]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList2" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Embrayage, boite de vitesse, cardans" name="fourth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[3]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList3" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Demarrage et charge" name="fifth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[4]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList4" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Echappement" name="sixth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[5]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList5" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Direction / Suspension / Roulements" name="seventh">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[6]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList6" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Visibilite" name="eighth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[7]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList7" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Chauffage et climatisation" name="ninth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[8]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList8" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Habitacle" name="tenth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[9]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList9" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Accessoires et portage" name="eleventh">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[10]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList10" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Jantes & roues" name="twelfth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[11]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList11" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Carrosserie" name="thirteenth">
+          <!-- 商品展示容器 -->
+          <GoodsClassNav :sType="childType[12]"></GoodsClassNav>
+          <div class="goods-box">
+            <div class="as-box">
+              <div class="item-as-title">
+                <span>Les plus populaire</span>
+              </div>
+              <div class="item-as" v-for="(item,index) in popularList" :key="index">
+                <div class="item-as-img">
+                  <img :src="item.imgurl" alt="" class="popular-img">
+                </div>
+                <div class="item-as-price">
+              <span>
+                <span class="seckill-price text-danger">{{item.price}}</span>
+              </span>
+                </div>
+                <div class="item-as-intro">
+                  <span>{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- ads end -->
+            <div class="goods-list-box">
+              <div class="goods-list">
+                <div class="goods-show-info" v-for="(item, index) in piecesList12" :key="index">
+                  <div class="goods-show-img">
+                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                  </div>
+                  <div class="goods-show-price">
+                <span>
+                  <span class="seckill-price text-danger">{{item.price}}</span>
+                </span>
+                  </div>
+                  <div class="goods-show-detail">
+                    <span>{{item.name}}</span>
+                  </div>
+                  <div class="goods-show-num">
+                    <span>{{item.rate}}</span>
+                  </div>
+                  <div class="goods-show-seller">
+                    <span>{{item.type2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
       <div class="goods-page">
         <Page :total="100" show-sizer></Page>
       </div>
@@ -83,7 +653,8 @@ import Search from '@/components/Search';
 import GoodsListNav from '@/components/nav/GoodsListNav';
 import GoodsClassNav from '@/components/nav/GoodsClassNav';
 import store from '@/vuex/store';
-import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
+
 export default {
   name: 'GoodsList',
   beforeRouteEnter (to, from, next) {
@@ -92,34 +663,56 @@ export default {
   },
   data () {
     return {
-      searchItem: '',
-      isAction: [ true, false, false ],
-      icon: [ 'arrow-up-a', 'arrow-down-a', 'arrow-down-a' ],
-      goodsTool: [
-        {title: '综合', en: 'sale'},
-        {title: '评论数', en: 'remarks'},
-        {title: '价格', en: 'price'}
-      ]
+      activeName: 'first',
+      searchItem: ''
     };
   },
   computed: {
-    ...mapState(['asItems', 'isLoading']),
-    ...mapGetters(['orderGoodsList'])
+    ...mapState(['asItems', 'isLoading', 'childType', 'piecesList0',
+      'piecesList1', 'piecesList2', 'piecesList3', 'piecesList4',
+      'piecesList5', 'piecesList6', 'piecesList7', 'piecesList8',
+      'piecesList9', 'piecesList10', 'piecesList11', 'piecesList12',
+      'popularList'])
   },
   methods: {
-    ...mapActions(['loadGoodsList']),
-    ...mapMutations(['SET_GOODS_ORDER_BY']),
-    orderBy (data, index) {
-      console.log(data);
-      this.icon = [ 'arrow-down-a', 'arrow-down-a', 'arrow-down-a' ];
-      this.isAction = [ false, false, false ];
-      this.isAction[index] = true;
-      this.icon[index] = 'arrow-up-a';
-      this.SET_GOODS_ORDER_BY(data);
+    ...mapActions(['loadGoodsList', 'getChildType', 'getPieces0',
+      'getPieces1', 'getPieces2', 'getPieces3', 'getPieces4',
+      'getPieces5', 'getPieces6', 'getPieces7', 'getPieces8',
+      'getPieces9', 'getPieces10', 'getPieces11', 'getPieces12',
+      'getPopularList']),
+    ...mapMutations(['SET_GOODS_ORDER_BY', 'SET_CHILDTYPE', 'SET_PIECES_0',
+      'SET_PIECES_1', 'SET_PIECES_2', 'SET_PIECES_3', 'SET_PIECES_4',
+      'SET_PIECES_5', 'SET_PIECES_6', 'SET_PIECES_7', 'SET_PIECES_8',
+      'SET_PIECES_9', 'SET_PIECES_10', 'SET_PIECES_11', 'SET_PIECES_12',
+      'SET_POPULAR_LIST']),
+    init () {
+      let p = this.$route.query;
+      if (Object.keys(p).length) {
+        this.activeName = p.params;
+      }
+    },
+    handleClick (tab, event) {
+      console.log(tab, event);
     }
   },
   created () {
     this.loadGoodsList();
+    this.getChildType();
+    this.getPieces0();
+    this.getPieces1();
+    this.getPieces2();
+    this.getPieces3();
+    this.getPieces4();
+    this.getPieces5();
+    this.getPieces6();
+    this.getPieces7();
+    this.getPieces8();
+    this.getPieces9();
+    this.getPieces10();
+    this.getPieces11();
+    this.getPieces12();
+    this.getPopularList();
+    this.init();
   },
   mounted () {
     this.searchItem = this.$route.query.searchData;
@@ -149,6 +742,10 @@ export default {
 }
 .goods-box {
   display: flex;
+  margin-top: 50px;
+}
+.tab-container {
+  margin-top: 30px;
 }
 /* ---------------侧边广告栏开始------------------- */
 .as-box {
@@ -164,12 +761,6 @@ export default {
 }
 .item-as-title span:first-child{
   margin-left: 20px;
-}
-.item-as-title span:last-child{
-  float: right;
-  margin-right: 15px;
-  font-size: 10px;
-  color: #ccc;
 }
 .item-as{
   width: 160px;
@@ -197,6 +788,14 @@ export default {
 /* ---------------侧边广告栏结束------------------- */
 
 /* ---------------商品栏开始------------------- */
+.piece-img {
+  height: 220px;
+  width: 220px;
+}
+.popular-img {
+  height: 150px;
+  width: 150px;
+}
 .goods-list-box {
   margin-left: 15px;
   width: calc(100% - 215px);

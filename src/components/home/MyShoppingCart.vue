@@ -16,12 +16,12 @@ export default {
     return {
       columns: [
         {
-          type: 'selection',
+          type: 'Selection',
           width: 58,
           align: 'center'
         },
         {
-          title: 'photo',
+          title: 'Photo',
           key: 'img',
           width: 86,
           render: (h, params) => {
@@ -36,24 +36,24 @@ export default {
           align: 'center'
         },
         {
-          title: 'titre',
+          title: 'Titre',
           key: 'title',
           align: 'center'
         },
         {
-          title: 'menu',
+          title: 'Menu',
           width: 198,
           key: 'package',
           align: 'center'
         },
         {
-          title: 'nombre',
+          title: 'Nombre',
           key: 'count',
-          width: 68,
+          width: 98,
           align: 'center'
         },
         {
-          title: 'prix',
+          title: 'Prix',
           width: 68,
           key: 'price',
           align: 'center'

@@ -69,14 +69,165 @@ export const loadCarouselItems = ({ commit }) => {
   });
 };
 
-export const getAllPieces = ({ commit }) => {
+export const getPieces0 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type=text').then(response => {
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Freinage').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_0', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces1 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Filtration').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_1', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces2 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Moteur').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_2', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces3 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Embrayage, boite de vitesse, cardans').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_3', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces4 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Demarrage et charge').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_4', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces5 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Echappement').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_5', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces6 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Direction / Suspension / Roulements').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_6', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces7 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Visibilite').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_7', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces8 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Chauffage et climatisation').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_8', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces9 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Habitacle').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_9', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces10 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Accessoires et portage').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_10', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces11 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Jantes %26 roues').then(response => {
       pieces = response.data;
       console.log(pieces);
-      commit('SET_PIECES', pieces);
+      commit('SET_PIECES_11', pieces);
     }).catch(error => console.log(error));
+  });
+};
+
+export const getPieces12 = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let pieces;
+    axios.get('http://localhost:8084/queryAllPieceByType?type1=Carrosserie').then(response => {
+      pieces = response.data;
+      commit('SET_PIECES_12', pieces);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getPopularList = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    let popular;
+    axios.get('http://localhost:8084/queryHighestRatePiece').then(response => {
+      popular = response.data;
+      commit('SET_POPULAR_LIST', popular);
+    }).catch(error => console.log(error));
+  });
+};
+
+export const getChildType = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    const data = [
+      ['Plaquettes de frein', 'Disque de frein', 'Etrier de frein', 'Freins à tambours et Kit arriere'],
+      ['Filtre a  huile', 'Filtre a air', 'Filtre a carburant', 'Filtre d\'habitacle'],
+      ['Distribution', 'Courroies', 'Refroidissement', 'Injection'],
+      ['Kit d\'embrayage', 'Kit d\'embrayage + volant moteur', 'Volant moteur', 'Pieces d\'embrayage'],
+      ['Allumage', 'Prechauffage', 'Alternateur', 'Batterie'],
+      ['Echappement,Silencieux,catalyseur,intermédiare', 'Vanne EGR et autre capteur d\'échappement', 'Filtre a particules - FAP', 'Sonde lambda'],
+      ['Amortisseur', 'Direction', 'Pieces de suspension', 'Roulemnt / moyeu / roue'],
+      ['Optique / phare / feu', 'Balai d\'essuie-glace', 'Pieces d\'essuie glace', 'Ampoules'],
+      ['Climatisation', 'Chauffage'],
+      ['Leve vitre', 'Pedalier', 'Centrale clignotante', 'Commandes/Comodo'],
+      ['Parctronic', 'Kit de câbles,parctronic', 'Attelage', 'Equipement Audio/Alarme'],
+      ['Kit de réparation,palpeur des roues', 'Ecrou / Boulon de roue', 'Piston de butée,Jante'],
+      ['Retroviseur exterieurs', 'Verins ouvertures', 'Serrures/fermetures', 'Retroviseurs interieurs']
+    ];
+    commit('SET_CHILDTYPE', data);
   });
 };
 
@@ -680,23 +831,21 @@ export const loadAddress = ({ commit }) => {
     const address = [
       {
         addressId: '123456',
-        name: 'Gavin',
-        province: '广东省',
-        city: '广州市',
-        area: '天河区',
-        address: '燕岭路633号',
-        phone: '152****0609',
-        postalcode: '510000'
+        name: 'yonghui',
+        province: 'Franche-comté',
+        city: 'Belfort',
+        address: '3 rue Marcel Paul',
+        phone: '07****5517',
+        postalcode: '90000'
       },
       {
         addressId: '123458',
-        name: 'Kevin',
-        province: '上海市',
-        city: '上海市',
-        area: '浦东新区',
-        address: '沙新镇',
-        phone: '158****0888',
-        postalcode: '200120'
+        name: 'UTBM',
+        province: 'Franche-comté',
+        city: 'Belfort',
+        address: '2 Rue Thierry-Mieg',
+        phone: '06****1782',
+        postalcode: '90000'
       }
     ];
     commit('SET_USER_ADDRESS', address);

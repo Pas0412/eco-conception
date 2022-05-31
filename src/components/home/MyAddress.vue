@@ -10,7 +10,7 @@
       </div>
       <div class="address-content">
         <p><span class="address-content-title">Destinataire:</span> {{item.name}}</p>
-        <p><span class="address-content-title">Zone de réception:</span> {{item.province}} {{item.city}} {{item.area}}</p>
+        <p><span class="address-content-title">Zone de réception:</span> {{item.province}} {{item.city}}</p>
         <p><span class="address-content-title">Adress de livraision:</span> {{item.address}}</p>
         <p><span class="address-content-title">Code postal:</span> {{item.postalcode}}</p>
       </div>
@@ -26,7 +26,8 @@
                 <i-input v-model="formData.name" size="large"></i-input>
               </FormItem>
               <FormItem label="Zone" prop="address">
-                <Distpicker :province="formData.province" :city="formData.city" :area="formData.area" @province="getProvince" @city="getCity" @area="getArea"></Distpicker>
+                <i-input v-model="formData.province" size="large"></i-input>
+                <i-input v-model="formData.city" size="large"></i-input>
               </FormItem>
               <FormItem label="Adresse" prop="address">
                 <i-input v-model="formData.address" size="large"></i-input>
@@ -60,9 +61,8 @@ export default {
         address: '',
         phone: '',
         postalcode: '',
-        province: '广东省',
-        city: '广州市',
-        area: '天河区'
+        province: 'Franche-comté',
+        city: 'Belfort'
       },
       ruleInline: {
         name: [
@@ -75,8 +75,8 @@ export default {
           { required: true, message: 'Code Postal', trigger: 'blur' }
         ],
         phone: [
-          { required: true, message: 'Le numéro de portable ne peut pas être vide', trigger: 'blur' },
-          { type: 'string', pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: 'Mauvais format', trigger: 'blur' }
+          { required: true, message: 'Numéro portable obligatoire', trigger: 'blur' },
+          { type: 'string', pattern: /^0[1-9][0-9]{8}$/, message: 'Mauvais format', trigger: 'blur' }
         ]
       }
     };

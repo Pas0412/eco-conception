@@ -39,7 +39,21 @@ export default new Vuex.Store({
       },
       goodsList: []
     },
-    piecesList: [],
+    piecesList0: [],
+    piecesList1: [],
+    piecesList2: [],
+    piecesList3: [],
+    piecesList4: [],
+    piecesList5: [],
+    piecesList6: [],
+    piecesList7: [],
+    piecesList8: [],
+    piecesList9: [],
+    piecesList10: [],
+    piecesList11: [],
+    piecesList12: [],
+    childType: [],
+    popularList: [],
     computer: {}, // 电脑专栏
     eat: {}, // 爱吃专栏
     asItems: [], // 广告

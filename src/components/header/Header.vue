@@ -86,7 +86,6 @@ export default {
   name: 'M-Header',
   created () {
     this.isLogin();
-    this.getAllPieces();
   },
   data () {
     return {
@@ -95,10 +94,10 @@ export default {
   mounted () {
   },
   computed: {
-    ...mapState(['userInfo', 'shoppingCart', 'piecesList'])
+    ...mapState(['userInfo', 'shoppingCart'])
   },
   methods: {
-    ...mapActions(['signOut', 'isLogin', 'getAllPieces']),
+    ...mapActions(['signOut', 'isLogin']),
     goToPay () {
       if (this.userInfo.username) {
         this.$router.push('/order');
