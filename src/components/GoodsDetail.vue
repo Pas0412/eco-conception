@@ -2,32 +2,27 @@
   <div>
     <Search></Search>
     <ShopHeader></ShopHeader>
-    <GoodsDetailNav></GoodsDetailNav>
     <div class="shop-item-path">
       <div class="shop-nav-container">
         <Breadcrumb>
-          <BreadcrumbItem to="/">Accueil</BreadcrumbItem>
-          <BreadcrumbItem to="/goodsList">手机壳</BreadcrumbItem>
-          <BreadcrumbItem>手机保护套</BreadcrumbItem>
+          <BreadcrumbItem to="/">ACCUEIL</BreadcrumbItem>
+          <BreadcrumbItem to="/goodsList">GOODSLIST</BreadcrumbItem>
+          <BreadcrumbItem>CURRENT</BreadcrumbItem>
         </Breadcrumb>
       </div>
     </div>
     <!-- 商品信息展示 -->
-    <ShowGoods></ShowGoods>
-    <!-- 商品详细展示 -->
-    <ShowGoodsDetail></ShowGoodsDetail>
-    <Spin size="large" fix v-if="isLoading"></Spin>
+    <ShowGoods :item="this.getItem"></ShowGoods>
   </div>
 </template>
 
 <script>
 import Search from '@/components/Search';
-import GoodsDetailNav from '@/components/nav/GoodsDetailNav';
 import ShopHeader from '@/components/header/ShopHeader';
 import ShowGoods from '@/components/goodsDetail/ShowGoods';
-import ShowGoodsDetail from '@/components/goodsDetail/ShowGoodsDetail';
 import store from '@/vuex/store';
 import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'GoodsDetail',
   beforeRouteEnter (to, from, next) {
@@ -39,21 +34,24 @@ export default {
   },
   data () {
     return {
-      tagsColor: [ 'blue', 'green', 'red', 'yellow' ]
+      tagsColor: [ 'blue', 'green', 'red', 'yellow' ],
+      item: null
     };
   },
   methods: {
     ...mapActions(['loadGoodsInfo'])
   },
   computed: {
-    ...mapState(['goodsInfo', 'isLoading'])
+    ...mapState(['goodsInfo', 'isLoading']),
+    getItem: function () {
+      console.log(this.$route.query.name);
+      return JSON.parse(this.$route.query.name);
+    }
   },
   components: {
     Search,
     ShopHeader,
-    GoodsDetailNav,
-    ShowGoods,
-    ShowGoodsDetail
+    ShowGoods
   },
   store
 };

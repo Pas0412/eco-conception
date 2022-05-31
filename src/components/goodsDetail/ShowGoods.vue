@@ -3,50 +3,27 @@
     <div class="item-detail-show">
       <div class="item-detail-left">
         <div class="item-detail-big-img">
-          <img :src="goodsInfo.goodsImg[imgIndex]" alt="">
-        </div>
-        <div class="item-detail-img-row">
-          <div class="item-detail-img-small" v-for="(item, index) in goodsInfo.goodsImg" :key="index" @mouseover="showBigImg(index)">
-            <img :src="item" alt="">
-          </div>
+          <img :src="this.item.imgurl" alt="">
         </div>
       </div>
       <div class="item-detail-right">
         <div class="item-detail-title">
-          <p>
-            <span class="item-detail-express">校园配送</span> {{goodsInfo.title}}</p>
-        </div>
-        <div class="item-detail-tag">
-          <p>
-            <span v-for="(item,index) in goodsInfo.tags" :key="index">【{{item}}】</span>
-          </p>
+          <p>{{this.item.name}}</p>
         </div>
         <div class="item-detail-price-row">
           <div class="item-price-left">
             <div class="item-price-row">
               <p>
-                <span class="item-price-title">B I T 价</span>
-                <span class="item-price">￥{{price.toFixed(2)}}</span>
-              </p>
-            </div>
-            <div class="item-price-row">
-              <p>
-                <span class="item-price-title">优 惠 价</span>
-                <span class="item-price-full-cut" v-for="(item,index) in goodsInfo.discount" :key="index">{{item}}</span>
-              </p>
-            </div>
-            <div class="item-price-row">
-              <p>
-                <span class="item-price-title">促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</span>
-                <span class="item-price-full-cut" v-for="(item,index) in goodsInfo.promotion" :key="index">{{item}}</span>
+                <span class="item-price-title">PRIX</span>
+                <span class="item-price">{{this.item.price}}</span>
               </p>
             </div>
           </div>
           <div class="item-price-right">
             <div class="item-remarks-sum">
-              <p>累计评价</p>
+              <p>Rate</p>
               <p>
-                <span class="item-remarks-num">{{goodsInfo.remarksNum}} 条</span>
+                <span class="item-remarks-num">{{this.item.rate}}</span>
               </p>
             </div>
           </div>
@@ -54,7 +31,7 @@
         <!-- 选择颜色 -->
         <div class="item-select">
           <div class="item-select-title">
-            <p>选择颜色</p>
+            <p>CHOISIR MARQUE</p>
           </div>
           <div class="item-select-column">
             <div class="item-select-row" v-for="(items, index) in goodsInfo.setMeal" :key="index">
@@ -69,24 +46,11 @@
             </div>
           </div>
         </div>
-        <!-- 白条分期 -->
-        <div class="item-select">
-          <div class="item-select-title">
-            <p>白条分期</p>
-          </div>
-          <div class="item-select-row">
-            <div class="item-select-class" v-for="(item,index) in hirePurchase" :key="index">
-              <Tooltip :content="item.tooltip" placement="top-start">
-                <span>{{item.type}}</span>
-              </Tooltip>
-            </div>
-          </div>
-        </div>
         <br>
         <div class="add-buy-car-box">
           <div class="add-buy-car">
             <InputNumber :min="1" v-model="count" size="large"></InputNumber>
-            <Button type="error" size="large" @click="addShoppingCartBtn()">加入购物车</Button>
+            <Button type="error" size="large" @click="addShoppingCartBtn()">Ajouter au panier</Button>
           </div>
         </div>
       </div>
@@ -107,45 +71,15 @@ export default {
       imgIndex: 0
     };
   },
+  props: ['item'],
   computed: {
-    ...mapState(['goodsInfo']),
-    hirePurchase () {
-      const three = this.price * this.count / 3;
-      const sex = this.price * this.count / 6;
-      const twelve = this.price * this.count / 12 * 1.0025;
-      const twentyFour = this.price * this.count / 24 * 1.005;
-      return [
-        {
-          tooltip: '无手续费',
-          type: '不分期'
-        },
-        {
-          tooltip: '无手续费',
-          type: `￥${three.toFixed(2)} x 3期`
-        },
-        {
-          tooltip: '无手续费',
-          type: `￥${sex.toFixed(2)} x 6期`
-        },
-        {
-          tooltip: '含手续费：费率0.25%起，￥0.1起×12期',
-          type: `￥${twelve.toFixed(2)} x 12期`
-        },
-        {
-          tooltip: '含手续费：费率0.5%起，￥0.1起×12期',
-          type: `￥${twentyFour.toFixed(2)} x 24期`
-        }
-      ];
-    }
+    ...mapState(['goodsInfo'])
   },
   methods: {
     ...mapActions(['addShoppingCart']),
     select (index1, index2) {
       this.selectBoxIndex = index1 * 3 + index2;
       this.price = this.goodsInfo.setMeal[index1][index2].price;
-    },
-    showBigImg (index) {
-      this.imgIndex = index;
     },
     addShoppingCartBtn () {
       const index1 = parseInt(this.selectBoxIndex / 3);
@@ -154,7 +88,7 @@ export default {
       const goodsId = date.getTime();
       const data = {
         goods_id: goodsId,
-        title: this.goodsInfo.title,
+        title: this.item.name,
         count: this.count,
         package: this.goodsInfo.setMeal[index1][index2]
       };
@@ -176,7 +110,7 @@ export default {
 /******************商品图片及购买详情开始******************/
 .item-detail-show {
   width: 80%;
-  margin: 15px auto;
+  margin: 50px auto 200px;
   display: flex;
   flex-direction: row;
   background-color: #fff;

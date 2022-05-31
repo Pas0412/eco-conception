@@ -42,7 +42,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList0" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -90,7 +90,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList1" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -138,7 +138,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList2" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -186,7 +186,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList3" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -234,7 +234,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList4" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -282,7 +282,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList5" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -330,7 +330,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList6" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -378,7 +378,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList7" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -426,7 +426,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList8" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -474,7 +474,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList9" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -522,7 +522,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList10" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -570,7 +570,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList11" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
@@ -618,7 +618,7 @@
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList12" :key="index">
                   <div class="goods-show-img">
-                    <router-link to="/goodsDetail"><img class="piece-img" :src="item.imgurl"/></router-link>
+                    <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(item)}}"><img class="piece-img" :src="item.imgurl"/></router-link>
                   </div>
                   <div class="goods-show-price">
                 <span>
