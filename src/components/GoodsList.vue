@@ -37,7 +37,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList0" :key="index">
@@ -85,7 +85,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList1" :key="index">
@@ -133,7 +133,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList2" :key="index">
@@ -181,7 +181,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList3" :key="index">
@@ -229,7 +229,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList4" :key="index">
@@ -277,7 +277,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList5" :key="index">
@@ -325,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList6" :key="index">
@@ -373,7 +373,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList7" :key="index">
@@ -421,7 +421,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList8" :key="index">
@@ -469,7 +469,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList9" :key="index">
@@ -517,7 +517,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList10" :key="index">
@@ -565,7 +565,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList11" :key="index">
@@ -592,7 +592,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Carrosserie" name="thirteenth">
-          <!-- 商品展示容器 -->
+          <!-- POPULAR -->
           <GoodsClassNav :sType="childType[12]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -613,7 +613,7 @@
                 </div>
               </div>
             </div>
-            <!-- ads end -->
+            <!-- POPULAR end -->
             <div class="goods-list-box">
               <div class="goods-list">
                 <div class="goods-show-info" v-for="(item, index) in piecesList12" :key="index">
@@ -747,7 +747,7 @@ export default {
 .tab-container {
   margin-top: 30px;
 }
-/* ---------------侧边广告栏开始------------------- */
+/* ---------------POPULAR------------------- */
 .as-box {
   width: 200px;
   border: 1px solid #ccc;
@@ -785,9 +785,9 @@ export default {
 .item-as-selled span{
   color: #005AA0;
 }
-/* ---------------侧边广告栏结束------------------- */
+/* ---------------POPULAR------------------- */
 
-/* ---------------商品栏开始------------------- */
+/* ---------------GOODSLIST------------------- */
 .piece-img {
   height: 220px;
   width: 220px;
@@ -874,5 +874,5 @@ export default {
   display: flex;
   justify-content: flex-end;
 }
-/* ---------------商品栏结束------------------- */
+/* ---------------GOODSLIST------------------- */
 </style>

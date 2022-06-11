@@ -59,17 +59,22 @@ export const SET_POPULAR_LIST = (state, data) => {
   state.popularList = data;
 };
 
-// 设置注册步骤
+// set mark
+export const SET_MARK = (state, data) => {
+  state.mark = data;
+};
+
+// set sign up
 export const SET_SIGN_UP_SETP = (state, step) => {
   state.signUpStep = step;
 };
 
-// 设置用户登录信息
+// set user log in info
 export const SET_USER_LOGIN_INFO = (state, data) => {
   state.userInfo = data;
 };
 
-// 设置加载状态
+// set load status
 export const SET_LOAD_STATUS = (state, status) => {
   state.isLoading = status;
 };
@@ -129,10 +134,11 @@ export const SET_GOODS_INFO = (state, data) => {
 export const ADD_SHOPPING_CART = (state, data) => {
   const item = {
     goods_id: data.goods_id,
+    self: data.self,
+    img: data.img,
     count: data.count,
-    img: data.package.img,
-    package: data.package.intro,
-    price: data.package.price,
+    mark: data.mark,
+    price: data.self.price,
     title: data.title
   };
   state.shoppingCart.push(item);

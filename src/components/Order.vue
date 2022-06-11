@@ -44,9 +44,9 @@
       </div>
       <div class="pay-container">
         <div class="pay-box">
-          <p><span>Soumettre le montant total dû à la commande：</span> <span class="money"><Icon type="social-yen"></Icon> {{totalPrice.toFixed(2)}}</span></p>
+          <p><span>Soumettre le montant total dû à la commande：</span><span class="money">€{{totalPrice.toFixed(2)}}</span></p>
           <div class="pay-btn">
-            <router-link to="/pay"><Button type="error" size="large">Payer</Button></router-link>
+            <router-link to="/payDone"><Button type="error" size="large">Payer</Button></router-link>
           </div>
         </div>
       </div>
@@ -67,6 +67,7 @@ export default {
   },
   created () {
     this.loadAddress();
+    // TODO: load panier info from server
   },
   data () {
     return {
@@ -78,14 +79,16 @@ export default {
           align: 'center'
         },
         {
-          title: '图片',
+          title: 'img',
           key: 'img',
           width: 86,
           render: (h, params) => {
             return h('div', [
               h('img', {
                 attrs: {
-                  src: params.row.img
+                  src: params.row.img,
+                  height: '40px',
+                  width: '40px'
                 }
               })
             ]);
@@ -106,12 +109,12 @@ export default {
         {
           title: 'nombre',
           key: 'count',
-          width: 68,
+          width: 98,
           align: 'center'
         },
         {
           title: 'prix',
-          width: 68,
+          width: 88,
           key: 'price',
           align: 'center'
         }
@@ -126,9 +129,10 @@ export default {
   computed: {
     ...mapState(['address', 'shoppingCart']),
     totalPrice () {
-      let price = 0;
+      let price = 0.00;
       this.goodsCheckList.forEach(item => {
-        price += item.price * item.count;
+        console.log(item.price.match(/[0-9]*/)[0]);
+        price += (parseInt(item.price.match(/[0-9]*/)) + parseInt(item.price.match(/..\s/)) / 100) * item.count;
       });
       return price;
     }

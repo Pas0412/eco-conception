@@ -1,3 +1,16 @@
+If you encounter a problem like:
+Access to XMLHttpRequest at 'http://localhost:8084/queryAllPieceByType?type1=Carrosserie' from origin 'http://localhost:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+actions.js?a7ea:197
+
+which means your CORS policy has blocked your access, please:
+
+install CORS: Access-Control-Allow-Origin
+Download:
+Chrome: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+Firefox: https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/
+Opera: https://addons.opera.com/en/extensions/details/allow-cors-access-control-allow-origin/
+Edge: https://microsoftedge.microsoft.com/addons/detail/allow-cors-accesscontro/bhjepjpgngghppolkjdhckmnfphffdag
+
 # MALL-VUE
 [![Build Status](https://travis-ci.com/PowerDos/Mall-Vue.svg?branch=master)](https://travis-ci.com/PowerDos/Mall-Vue)
 [![VueJS Version](https://img.shields.io/badge/VueJS-v2.5-green.svg?style=flat-square)](https://vuejs.org/)

@@ -54,6 +54,7 @@ export default new Vuex.Store({
     piecesList12: [],
     childType: [],
     popularList: [],
+    mark: [],
     computer: {}, // 电脑专栏
     eat: {}, // 爱吃专栏
     asItems: [], // 广告

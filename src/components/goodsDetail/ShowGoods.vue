@@ -3,7 +3,7 @@
     <div class="item-detail-show">
       <div class="item-detail-left">
         <div class="item-detail-big-img">
-          <img :src="this.item.imgurl" alt="">
+          <img :src="this.item.imgurl" alt="" class="detail-img">
         </div>
       </div>
       <div class="item-detail-right">
@@ -28,19 +28,19 @@
             </div>
           </div>
         </div>
-        <!-- 选择颜色 -->
+        <!-- choose brand -->
         <div class="item-select">
           <div class="item-select-title">
             <p>CHOISIR MARQUE</p>
           </div>
           <div class="item-select-column">
-            <div class="item-select-row" v-for="(items, index) in goodsInfo.setMeal" :key="index">
-              <div class="item-select-box" v-for="(item, index1) in items" :key="index1" @click="select(index, index1)" :class="{'item-select-box-active': ((index * 3) + index1) === selectBoxIndex}">
+            <div class="item-select-row" v-for="(items, index) in mark" :key="index">
+              <div class="item-select-box" @click="select(index)" :class="{'item-select-box-active': index === selectBoxIndex}">
                 <div class="item-select-img">
-                  <img :src="item.img" alt="">
+                  <img :src="items.img" alt="">
                 </div>
                 <div class="item-select-intro">
-                  <p>{{item.intro}}</p>
+                  <p>{{items.name}}</p>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
 
 <script>
 import store from '@/vuex/store';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 export default {
   name: 'ShowGoods',
   data () {
@@ -73,41 +73,46 @@ export default {
   },
   props: ['item'],
   computed: {
-    ...mapState(['goodsInfo'])
+    ...mapState(['goodsInfo', 'mark', 'userInfo'])
   },
   methods: {
-    ...mapActions(['addShoppingCart']),
-    select (index1, index2) {
-      this.selectBoxIndex = index1 * 3 + index2;
-      this.price = this.goodsInfo.setMeal[index1][index2].price;
+    ...mapActions(['addShoppingCart', 'getMark']),
+    ...mapMutations(['SET_MARK']),
+    select (index) {
+      this.selectBoxIndex = index;
     },
     addShoppingCartBtn () {
-      const index1 = parseInt(this.selectBoxIndex / 3);
-      const index2 = this.selectBoxIndex % 3;
-      const date = new Date();
-      const goodsId = date.getTime();
-      const data = {
-        goods_id: goodsId,
-        title: this.item.name,
-        count: this.count,
-        package: this.goodsInfo.setMeal[index1][index2]
-      };
-      this.addShoppingCart(data);
-      this.$router.push('/shoppingCart');
+      if (this.userInfo.username) {
+        const index = this.selectBoxIndex;
+        // const date = new Date();
+        // const goodsId = date.getTime();
+        const data = {
+          goods_id: this.item.id,
+          self: this.item,
+          img: this.item.imgurl,
+          title: this.item.name,
+          count: this.count,
+          mark: this.mark[index],
+          user_name: this.userInfo.username
+        };
+        console.log(this.item);
+        this.addShoppingCart(data);
+        // TODO: post panier data to server(username)
+        this.$router.push('/shoppingCart');
+      } else {
+        this.$router.push('/Login');
+      }
     }
   },
-  mounted () {
-    const father = this;
-    setTimeout(() => {
-      father.price = father.goodsInfo.setMeal[0][0].price || 0;
-    }, 300);
+  created () {
+    this.getMark();
   },
   store
 };
 </script>
 
 <style scoped>
-/******************商品图片及购买详情开始******************/
+/******************Goods info******************/
 .item-detail-show {
   width: 80%;
   margin: 50px auto 200px;
@@ -124,6 +129,10 @@ export default {
   height: 350px;
   box-shadow: 0px 0px 8px #ccc;
   cursor: pointer;
+}
+.detail-img {
+  width: 350px;
+  height: 350px;
 }
 .item-detail-big-img img {
   width: 100%;
@@ -277,5 +286,5 @@ export default {
 .add-buy-car {
   margin-top: 15px;
 }
-/******************商品图片及购买详情结束******************/
+/******************add shoppingcart******************/
 </style>

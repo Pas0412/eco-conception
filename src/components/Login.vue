@@ -13,12 +13,12 @@
           <div class="form-box">
             <Form ref="formInline" :model="formDate" :rules="ruleInline">
               <FormItem prop="username">
-                  <i-input type="text" v-model="formDate.username" clearable size="large" placeholder="Nom d'utilisateur">
+                  <i-input type="text" v-model="formDate.username" clearable size="large" placeholder="Nom d'utilisateur(for test:input yonghui)">
                       <Icon type="person" slot="prepend"></Icon>
                   </i-input>
               </FormItem>
               <FormItem prop="password">
-                  <i-input type="password" v-model="formDate.password" clearable size="large" placeholder="Mot de passe">
+                  <i-input type="password" v-model="formDate.password" clearable size="large" placeholder="Mot de passe(for test:input 123456">
                       <Icon type="ios-locked-outline" slot="prepend"> </Icon>
                   </i-input>
               </FormItem>

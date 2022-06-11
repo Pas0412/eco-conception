@@ -2,7 +2,7 @@
   <div>
     <Search></Search>
     <GoodsListNav></GoodsListNav>
-    <!-- 添加成功提示 -->
+    <!-- success hint -->
     <div class="add-info-box-container">
       <div class="add-info-box">
         <div class="add-info-detail">
@@ -12,21 +12,21 @@
           </div>
           <div class="add-info-box-row">
             <div class="add-info-img">
-              <img :src="newShoppingCart.package.img" alt="">
+              <img :src="newShoppingCart.img" alt="">
             </div>
             <div class="add-info-intro">
-              <p>{{newShoppingCart.title}} {{newShoppingCart.package.intro}}...</p>
-              <p class="add-info-intro-detail">Couleur：{{newShoppingCart.package.intro}}/ Nombre：{{newShoppingCart.count}}</p>
+              <p>{{newShoppingCart.title}}...</p>
+              <p class="add-info-intro-detail">Marque：{{newShoppingCart.mark.name}} / Nombre：{{newShoppingCart.count}}</p>
             </div>
           </div>
         </div>
         <div class="car-btn-group">
           <div></div>
           <div class="car-btn-row">
-            <router-link to="/goodsDetail">
+            <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(newShoppingCart.self)}}">
               <button class="btn-car btn-car-to-detail">Voir les détails du produit</button>
             </router-link>
-            <router-link to="/order">
+            <router-link to="/home/myShoppingCart">
               <button class="btn-car btn-car-to-pay">Aller au panier pour vérifier > </button>
             </router-link>
           </div>
@@ -37,26 +37,27 @@
       <div class="other-user-buy-title">
         <p>Vous pouvez jeter un coup d’œil à d’autres produits d’ailleurs :)</p>
       </div>
-      <div class="other-user-buy-row" v-for="(items,index1) in recommend" :key="index1">
-        <div class="other-user-buy-item-box" v-for="(item,index2) in items" :key="index2">
+      <div class="other-container">
+        <div class="other-user-buy-row" v-for="(items,index1) in popularList" :key="index1">
           <div class="other-user-buy-item-img">
-            <a href="item_detail.html"><img :src="item.img" alt=""></a>
+            <img :src="items.imgurl" alt="" class="other-img">
           </div>
           <div class="other-buy-detail-box">
             <div class="other-buy-title">
               <a href="item_detail.html">
-                <p>{{item.intro}}</p>
+                <p>{{items.name}}</p>
               </a>
             </div>
             <div class="other-buy-price">
-              <p>￥{{item.price}}</p>
+              <p>{{items.price}}</p>
             </div>
             <div class="other-buy-btn-box">
-              <router-link to="/goodsDetail">
+              <router-link :to="{path:'/goodsDetail', query:{name: JSON.stringify(items)}}">
                 <button class="other-buy-btn"><Icon type="ios-cart"></Icon> Ajouter au panier</button>
               </router-link>
             </div>
           </div>
+          <div class="spliter"></div>
         </div>
       </div>
     </div>
@@ -67,7 +68,7 @@
 import Search from '@/components/Search';
 import GoodsListNav from '@/components/nav/GoodsListNav';
 import store from '@/vuex/store';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 export default {
   name: 'ShoppingCart',
   beforeRouteEnter (to, from, next) {
@@ -75,13 +76,14 @@ export default {
     next();
   },
   created () {
-    this.loadRecommend();
+    this.getPopularList();
   },
   computed: {
-    ...mapState(['newShoppingCart', 'recommend'])
+    ...mapState(['newShoppingCart', 'popularList'])
   },
   methods: {
-    ...mapActions(['loadRecommend'])
+    ...mapActions(['getPopularList']),
+    ...mapMutations(['SET_POPULAR_LIST'])
   },
   components: {
     Search,
@@ -92,7 +94,7 @@ export default {
 </script>
 
 <style scoped>
-/****************************加入购物车页面开始*****************************/
+/****************************add to shoppingcart*****************************/
 .add-info-box-container{
   width: 100%;
   background-color: #F5F5F5;
@@ -178,19 +180,30 @@ border:1px solid #e4393c;
   color: #666;
   font-weight: bold;
 }
+.other-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .other-user-buy-row{
   margin-top: 25px;
+  margin-bottom: 50px;
+  width: 150px;
+  height: 300px;
   display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+  align-items: center;
 }
 .other-user-buy-item-box{
   display: flex;
     flex-direction: row;
 }
 .other-user-buy-item-img{
-  width: 96px;
-  height: 96px;
+}
+.other-img {
+  height: 150px;
+  width: 150px;
 }
 .other-user-buy-item-img img{
   width: 100%;
@@ -225,5 +238,9 @@ border:1px solid #e4393c;
   color: #c91623;
   border: 1px solid #c91623;
 }
-/****************************加入购物车页面结束*****************************/
+.spliter {
+  background-color: grey;
+  height: 1px;
+}
+/*********************************************************/
 </style>

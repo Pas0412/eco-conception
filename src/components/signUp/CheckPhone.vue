@@ -28,7 +28,7 @@ export default {
       ruleValidate: {
         phone: [
           { required: true, message: 'Le numéro de portable ne peut pas être vide', trigger: 'blur' },
-          { type: 'string', pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: 'Mauvais format', trigger: 'blur' }
+          { type: 'string', pattern: /^0[1-9][0-9]{8}$/, message: 'Mauvais format', trigger: 'blur' }
         ],
         checkNum: [
           { required: true, message: 'Le code de vérification ne peut pas être vide', trigger: 'blur' },
@@ -40,7 +40,7 @@ export default {
   methods: {
     ...mapMutations(['SET_SIGN_UP_SETP']),
     getcheckNum () {
-      if (this.formValidate.phone.length === 11) {
+      if (this.formValidate.phone.length === 10) {
         this.$Message.success({
           content: 'Code: 1234',
           duration: 6,

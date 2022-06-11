@@ -7,7 +7,7 @@
             <div class="user-img">
               <img src="static/img/head.png">
             </div>
-            <p>Yonghui</p>
+            <p>{{ this.userInfo.username }}</p>
           </div>
           <Submenu name="1">
             <template slot="title">
@@ -49,8 +49,14 @@
 </template>
 
 <script>
+import store from '@/vuex/store';
+import {mapState} from 'vuex';
+
 export default {
   name: 'Home',
+  computed: {
+    ...mapState(['userInfo'])
+  },
   data () {
     return {
       activeTitle: 'Mon ordre',
@@ -67,7 +73,8 @@ export default {
       this.activeTitle = this.bar[name];
       this.$router.push(`/home/${name}`);
     }
-  }
+  },
+  store
 };
 </script>
 
