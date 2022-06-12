@@ -8,14 +8,14 @@
 
 > **SERVER**https://github.com/PoissonSA/mo54
 
->start projet:
->1.start backend
->2.modify your database pwd in application.yml
->3.mysql -u root -p in commandline
->4.source /YOUR_PROJECT_PATH/mo54/MO54backend/data.sql
->5.start frontend
->6.open in localhost
->
+##start projet:
+#1.start backend
+#2.modify your database pwd in application.yml
+#3.mysql -u root -p in commandline
+#4.source /YOUR_PROJECT_PATH/mo54/MO54backend/data.sql
+#5.start frontend
+#6.open in localhost
+
 ### Using Node
 ``` bash
 # install
