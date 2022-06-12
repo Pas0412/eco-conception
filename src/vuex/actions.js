@@ -358,7 +358,7 @@ export const loadGoodsList = ({ commit }) => {
   });
 };
 
-// 添加购物车
+// add panier
 export const addShoppingCart = ({ commit }, data) => {
   return new Promise((resolve, reject) => {
     axios.post('http://localhost:8084/addPieceToPanier', {
@@ -366,6 +366,17 @@ export const addShoppingCart = ({ commit }, data) => {
       'number': data.count,
       'brand': data.mark,
       'user': data.user_name
+    }).then(response => {
+    }).catch(error => console.log(error));
+    commit('ADD_SHOPPING_CART', data);
+  });
+};
+
+// commit order
+export const commitOrder = ({ commit }, data) => {
+  return new Promise((resolve, reject) => {
+    axios.post('http://localhost:8084/commitOrder', {
+      'user': data.user
     }).then(response => {
     }).catch(error => console.log(error));
     commit('ADD_SHOPPING_CART', data);

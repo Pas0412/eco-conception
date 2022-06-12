@@ -95,7 +95,6 @@ export default {
           mark: this.mark[index],
           user_name: this.userInfo.username
         };
-        console.log(this.item);
         this.addShoppingCart(data);
         this.$router.push('/shoppingCart');
       } else {

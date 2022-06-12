@@ -8,7 +8,7 @@
         <Icon type="ios-lightbulb-outline" slot="icon"></Icon>
         <template slot="desc">Veuillez cliquer sur la case de sélection devant l’article, sélectionnez l’article dans votre panier, puis cliquez sur Payer.</template>
       </Alert>
-      <Table border ref="selection" :columns="columns" :data="shoppingCart" size="large" @on-selection-change="select" no-data-text="Votre panier n’a pas d’articles, veuillez ajouter des articles à votre panier avant de cliquer sur Acheter"></Table>
+      <Table border ref="selection" :columns="columns" :data="shoppingCart" size="large" no-data-text="Votre panier n’a pas d’articles, veuillez ajouter des articles à votre panier avant de cliquer sur Acheter"></Table>
       <div class="address-container">
         <h3>Info destinataire</h3>
         <div class="address-box">
@@ -46,7 +46,7 @@
         <div class="pay-box">
           <p><span>Soumettre le montant total dû à la commande：</span><span class="money">€{{totalPrice.toFixed(2)}}</span></p>
           <div class="pay-btn">
-            <router-link to="/payDone"><Button type="error" size="large">Payer</Button></router-link>
+            <router-link to="/payDone"><Button type="error" size="large" @click="commitOrder">Payer</Button></router-link>
           </div>
         </div>
       </div>
@@ -67,17 +67,11 @@ export default {
   },
   created () {
     this.loadAddress();
-    // TODO: load panier info from server
   },
   data () {
     return {
       goodsCheckList: [],
       columns: [
-        {
-          type: 'selection',
-          width: 58,
-          align: 'center'
-        },
         {
           title: 'img',
           key: 'img',
@@ -101,14 +95,14 @@ export default {
           align: 'center'
         },
         {
-          title: 'menu',
+          title: 'marque',
           width: 198,
-          key: 'package',
+          key: 'brand',
           align: 'center'
         },
         {
           title: 'nombre',
-          key: 'count',
+          key: 'number',
           width: 98,
           align: 'center'
         },
@@ -130,19 +124,14 @@ export default {
     ...mapState(['address', 'shoppingCart']),
     totalPrice () {
       let price = 0.00;
-      this.goodsCheckList.forEach(item => {
-        console.log(item.price.match(/[0-9]*/)[0]);
-        price += (parseInt(item.price.match(/[0-9]*/)) + parseInt(item.price.match(/..\s/)) / 100) * item.count;
+      this.shoppingCart.forEach(item => {
+        price += (parseInt(item.price.match(/[0-9]*/)[0]) + parseInt(item.price.match(/..\s/)[0]) / 100) * item.number;
       });
       return price;
     }
   },
   methods: {
-    ...mapActions(['loadAddress']),
-    select (selection, row) {
-      console.log(selection);
-      this.goodsCheckList = selection;
-    },
+    ...mapActions(['loadAddress', 'commitOrder']),
     changeAddress (data) {
       const father = this;
       this.address.forEach(item => {
@@ -151,6 +140,9 @@ export default {
           father.checkAddress.address = `${item.name} ${item.province} ${item.city} ${item.address} ${item.phone} ${item.postalcode}`;
         }
       });
+    },
+    commitOrder () {
+      this.commitOrder(this.shoppingCart);
     }
   },
   mounted () {

@@ -14,6 +14,7 @@ export default {
   name: 'MyShoppingCart',
   data () {
     return {
+      deleteList: [],
       columns: [
         {
           type: 'Selection',
