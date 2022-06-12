@@ -29,7 +29,8 @@ export default {
               h('img', {
                 attrs: {
                   src: params.row.img
-                }
+                },
+                style: 'height:40px'
               })
             ]);
           },
@@ -41,14 +42,14 @@ export default {
           align: 'center'
         },
         {
-          title: 'Menu',
+          title: 'Marque',
           width: 198,
-          key: 'package',
+          key: 'brand',
           align: 'center'
         },
         {
           title: 'Nombre',
-          key: 'count',
+          key: 'number',
           width: 98,
           align: 'center'
         },
@@ -62,13 +63,13 @@ export default {
     };
   },
   created () {
-    this.loadShoppingCart();
+    this.loadShoppingCart(this.userInfo.username);
   },
   computed: {
-    ...mapState(['shoppingCart'])
+    ...mapState(['shoppingCart', 'userInfo'])
   },
   methods: {
-    ...mapActions(['loadShoppingCart']),
+    ...mapActions(['loadShoppingCart', 'addShoppingCart']),
     goTo () {
       this.$router.push('/order');
     }

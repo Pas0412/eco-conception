@@ -97,7 +97,6 @@ export default {
         };
         console.log(this.item);
         this.addShoppingCart(data);
-        // TODO: post panier data to server(username)
         this.$router.push('/shoppingCart');
       } else {
         this.$router.push('/Login');

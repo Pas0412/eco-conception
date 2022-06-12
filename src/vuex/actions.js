@@ -398,10 +398,26 @@ export const loadAddress = ({ commit }) => {
   });
 };
 
-export const loadShoppingCart = ({ commit }) => {
+export const loadShoppingCart = ({ commit }, user) => {
   return new Promise((resolve, reject) => {
-    const data = [];
-    commit('SET_SHOPPING_CART', data);
+    let panier = [];
+    let temp;
+    axios.get('http://localhost:8084/queryAllPieceInPanier', {
+      params: {user: user}
+    }).then(response => {
+      temp = response.data;
+      temp.forEach((item, index) => {
+        let obj = item;
+        panier.push({
+          number: obj.number,
+          title: obj.pieceDomain.name,
+          price: obj.pieceDomain.price,
+          img: obj.pieceDomain.imgurl,
+          brand: obj.brand
+        });
+      });
+      commit('SET_SHOPPING_CART', panier);
+    }).catch(error => console.log(error));
   });
 };
 
