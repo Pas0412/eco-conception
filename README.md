@@ -8,7 +8,7 @@
 
 > **SERVER**https://github.com/PoissonSA/mo54
 
-###start projet:
+### start projet:
 ```bash
 #1.start backend
 #2.modify your database pwd in application.yml
