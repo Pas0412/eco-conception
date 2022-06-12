@@ -1,8 +1,8 @@
 {
-  "name": "mall-vue",
+  "name": "eco-conception",
   "version": "1.0.0",
   "description": "Mall",
-  "author": "PowerDos <543541941@qq.com>",
+  "author": "yonghui <yong.huang@utbm.fr> + PowerDos <543541941@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
