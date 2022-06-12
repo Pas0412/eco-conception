@@ -21,7 +21,7 @@ import Search from '@/components/Search';
 import ShopHeader from '@/components/header/ShopHeader';
 import ShowGoods from '@/components/goodsDetail/ShowGoods';
 import store from '@/vuex/store';
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'GoodsDetail',
@@ -30,7 +30,6 @@ export default {
     next();
   },
   created () {
-    this.loadGoodsInfo();
   },
   data () {
     return {
@@ -39,10 +38,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['loadGoodsInfo'])
   },
   computed: {
-    ...mapState(['goodsInfo', 'isLoading']),
+    ...mapState(['isLoading']),
     getItem: function () {
       console.log(this.$route.query.name);
       return JSON.parse(this.$route.query.name);

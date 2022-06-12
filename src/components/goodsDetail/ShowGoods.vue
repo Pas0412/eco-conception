@@ -73,7 +73,7 @@ export default {
   },
   props: ['item'],
   computed: {
-    ...mapState(['goodsInfo', 'mark', 'userInfo'])
+    ...mapState(['mark', 'userInfo'])
   },
   methods: {
     ...mapActions(['addShoppingCart', 'getMark']),
@@ -84,15 +84,13 @@ export default {
     addShoppingCartBtn () {
       if (this.userInfo.username) {
         const index = this.selectBoxIndex;
-        // const date = new Date();
-        // const goodsId = date.getTime();
         const data = {
           goods_id: this.item.id,
           self: this.item,
           img: this.item.imgurl,
           title: this.item.name,
           count: this.count,
-          mark: this.mark[index],
+          mark: this.mark[index].name,
           user_name: this.userInfo.username
         };
         this.addShoppingCart(data);

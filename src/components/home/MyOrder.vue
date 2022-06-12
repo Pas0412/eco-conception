@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Table border :columns="columns" :data="order" size="large" no-data-text="你还有订单，快点去购物吧"></Table>
+    <Table border :columns="columns" :data="orderList" size="large" no-data-text="Vous n'avez pas encore de commande, dépêchez-vous et faites vos courses！"></Table>
     <div class="page-size">
       <Page :total="100" show-sizer></Page>
     </div>
@@ -8,25 +8,20 @@
 </template>
 
 <script>
+import store from '@/vuex/store';
+import { mapState, mapActions } from 'vuex';
 export default {
   name: 'MyOrder',
+  created () {
+    this.getOrder(this.userInfo.username);
+  },
   data () {
     return {
-      order: [{
-        order_id: 1529931938150,
-        goods_id: 1529931938150,
-        count: 1,
-        img: 'static/img/goodsDetail/pack/1.jpg',
-        package: '4.7英寸-深邃蓝',
-        price: 28,
-        title: '苹果8/7手机壳iPhone7 Plus保护壳全包防摔磨砂硬外壳',
-        createAt: '2018-06-06 20:06:08'
-      }],
       columns: [
         {
           title: 'Numéro de commande',
-          key: 'order_id',
-          width: 190,
+          key: 'id',
+          width: 150,
           align: 'center'
         },
         {
@@ -38,7 +33,8 @@ export default {
               h('img', {
                 attrs: {
                   src: params.row.img
-                }
+                },
+                style: 'height:40px'
               })
             ]);
           },
@@ -50,14 +46,14 @@ export default {
           align: 'center'
         },
         {
-          title: 'Menu',
+          title: 'Marque',
           width: 198,
-          key: 'package',
+          key: 'brand',
           align: 'center'
         },
         {
           title: 'Nombre',
-          key: 'count',
+          key: 'number',
           width: 98,
           align: 'center'
         },
@@ -70,12 +66,19 @@ export default {
         {
           title: 'Moment de l\'achat',
           width: 120,
-          key: 'createAt',
+          key: 'time',
           align: 'center'
         }
       ]
     };
-  }
+  },
+  computed: {
+    ...mapState(['orderList', 'userInfo'])
+  },
+  methods: {
+    ...mapActions(['getOrder'])
+  },
+  store
 };
 </script>
 

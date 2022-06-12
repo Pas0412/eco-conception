@@ -675,7 +675,7 @@ export default {
       'popularList'])
   },
   methods: {
-    ...mapActions(['loadGoodsList', 'getChildType', 'getPieces0',
+    ...mapActions(['getChildType', 'getPieces0',
       'getPieces1', 'getPieces2', 'getPieces3', 'getPieces4',
       'getPieces5', 'getPieces6', 'getPieces7', 'getPieces8',
       'getPieces9', 'getPieces10', 'getPieces11', 'getPieces12',
@@ -696,7 +696,6 @@ export default {
     }
   },
   created () {
-    this.loadGoodsList();
     this.getChildType();
     this.getPieces0();
     this.getPieces1();

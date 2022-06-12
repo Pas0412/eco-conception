@@ -1,8 +1,13 @@
 <template>
   <div>
     <Table border ref="selection" :columns="columns" :data="shoppingCart" size="large" no-data-text="Le panier est vide"></Table>
-    <div class="go-to">
-      <Button @click="goTo" type="primary">Payer</Button>
+    <div class="button">
+      <div class="vider">
+        <Button @click="vider" type="primary">Vider</Button>
+      </div>
+      <div class="go-to">
+        <Button @click="goTo" type="primary">Payer</Button>
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +19,6 @@ export default {
   name: 'MyShoppingCart',
   data () {
     return {
-      deleteList: [],
       columns: [
         {
           type: 'Selection',
@@ -70,9 +74,12 @@ export default {
     ...mapState(['shoppingCart', 'userInfo'])
   },
   methods: {
-    ...mapActions(['loadShoppingCart', 'addShoppingCart']),
+    ...mapActions(['loadShoppingCart', 'addShoppingCart', 'deletePanier']),
     goTo () {
       this.$router.push('/order');
+    },
+    vider () {
+      this.deletePanier(this.userInfo.username);
     }
   },
   store
@@ -80,6 +87,22 @@ export default {
 </script>
 
 <style scoped>
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 200px;
+  width: 100%;
+}
+
+.vider {
+  margin: 15px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: grey;
+  color: white;
+}
+
 .go-to {
   margin: 15px;
   display: flex;

@@ -46,7 +46,7 @@
         <div class="pay-box">
           <p><span>Soumettre le montant total dû à la commande：</span><span class="money">€{{totalPrice.toFixed(2)}}</span></p>
           <div class="pay-btn">
-            <router-link to="/payDone"><Button type="error" size="large" @click="commitOrder">Payer</Button></router-link>
+            <Button type="error" size="large" @click="commit()">Payer</Button>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['address', 'shoppingCart']),
+    ...mapState(['address', 'shoppingCart', 'userInfo']),
     totalPrice () {
       let price = 0.00;
       this.shoppingCart.forEach(item => {
@@ -141,14 +141,17 @@ export default {
         }
       });
     },
-    commitOrder () {
-      this.commitOrder(this.shoppingCart);
+    commit () {
+      let user = this.userInfo.username;
+      console.log(user);
+      this.commitOrder(user);
+      this.$router.push('/payDone');
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.$refs.selection.selectAll(true);
-    }, 500);
+    // setTimeout(() => {
+    //   this.$refs.selection.selectAll(true);
+    // }, 500);
   },
   components: {
     Search,
