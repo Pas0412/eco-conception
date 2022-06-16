@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <router-view/>
-    <!-- 部分路由不应该包含这个Footer -->
+    <!-- excludeFooter -->
     <Footer v-if="excludeRoutes.indexOf($route.name) == -1"></Footer>
   </div>
 </template>

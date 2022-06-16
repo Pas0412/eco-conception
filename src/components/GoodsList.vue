@@ -13,10 +13,10 @@
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
-      <!-- 商品标签导航 -->
+      <!-- pieceTab -->
       <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick" class="tab-container">
         <el-tab-pane label="Freinage" name="first">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[0]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -64,7 +64,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Filtration" name="second">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[1]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -112,7 +112,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Moteur" name="third">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[2]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -160,7 +160,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Embrayage, boite de vitesse, cardans" name="fourth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[3]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -208,7 +208,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Demarrage et charge" name="fifth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[4]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -256,7 +256,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Echappement" name="sixth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[5]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -304,7 +304,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Direction / Suspension / Roulements" name="seventh">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[6]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -352,7 +352,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Visibilite" name="eighth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[7]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -400,7 +400,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Chauffage et climatisation" name="ninth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[8]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -448,7 +448,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Habitacle" name="tenth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[9]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -496,7 +496,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Accessoires et portage" name="eleventh">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[10]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">
@@ -544,7 +544,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Jantes & roues" name="twelfth">
-          <!-- 商品展示容器 -->
+          <!-- pieceType -->
           <GoodsClassNav :sType="childType[11]"></GoodsClassNav>
           <div class="goods-box">
             <div class="as-box">

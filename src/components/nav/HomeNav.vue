@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav-body">
-      <!-- 侧边导航 -->
+      <!-- nav-side -->
       <div class="nav-side" ref="navSide">
         <div class="nav-side-ul">
           <li @mouseenter="showDetail(1)" @mouseleave="hideDetail(1)" @click="handleClick('first')">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="nav-content">
-        <!-- 幻灯片 -->
+        <!-- carousel -->
         <div>
           <Carousel autoplay loop>
               <CarouselItem  v-for="(item, index) in marketing.CarouselItems" :key="index">

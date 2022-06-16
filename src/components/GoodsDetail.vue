@@ -11,7 +11,7 @@
         </Breadcrumb>
       </div>
     </div>
-    <!-- 商品信息展示 -->
+    <!-- showGoods -->
     <ShowGoods :item="this.getItem"></ShowGoods>
   </div>
 </template>

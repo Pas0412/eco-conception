@@ -1,5 +1,5 @@
 <template>
-<!-- 登录页面 -->
+<!-- login page -->
   <div>
     <Row class="container">
       <i-col span="13" offset="2" class="login-img-box">
