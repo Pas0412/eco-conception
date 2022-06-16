@@ -5,7 +5,7 @@
         <Menu active-name="1-2" theme="light" width="auto" @on-select="onSelect">
           <div class="user-icon">
             <div class="user-img">
-              <img src="static/img/head.png">
+              <img src="static/img/head.jpeg">
             </div>
             <p>{{ this.userInfo.username }}</p>
           </div>
@@ -42,7 +42,7 @@
             <router-view></router-view>
           </transition>
         </Content>
-        <Footer class="layout-footer-center">2022 &copy; Yonghui</Footer>
+        <Footer class="layout-footer-center">2022 &copy; Yonghui & Chenfan</Footer>
       </Layout>
     </Layout>
   </div>

@@ -41,7 +41,7 @@
         <div class="clearfix"></div>
         <img src="@/asset/logo.png" class="footer-logo">
         <div class="copyright">
-          <p>Copyright © 2022 by Yonghui <Icon type="social-github"></Icon></a> <span>MO54A22</span></p>
+          <p>Copyright © 2022 by Yonghui & Chenfan<Icon type="social-github"></Icon></a> <span>MO54A22</span></p>
         </div>
       </div>
     </footer>

@@ -22,7 +22,7 @@ export const loadCarouselItems = ({ commit }) => {
 export const getPieces0 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Freinage').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Freinage').then(response => {
       pieces = response.data;
       commit('SET_PIECES_0', pieces);
     }).catch(error => console.log(error));
@@ -32,7 +32,7 @@ export const getPieces0 = ({ commit }) => {
 export const getPieces1 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Filtration').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Filtration').then(response => {
       pieces = response.data;
       commit('SET_PIECES_1', pieces);
     }).catch(error => console.log(error));
@@ -42,7 +42,7 @@ export const getPieces1 = ({ commit }) => {
 export const getPieces2 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Moteur').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Moteur').then(response => {
       pieces = response.data;
       commit('SET_PIECES_2', pieces);
     }).catch(error => console.log(error));
@@ -52,7 +52,7 @@ export const getPieces2 = ({ commit }) => {
 export const getPieces3 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Embrayage, boite de vitesse, cardans').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Embrayage, boite de vitesse, cardans').then(response => {
       pieces = response.data;
       commit('SET_PIECES_3', pieces);
     }).catch(error => console.log(error));
@@ -62,7 +62,7 @@ export const getPieces3 = ({ commit }) => {
 export const getPieces4 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Demarrage et charge').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Demarrage et charge').then(response => {
       pieces = response.data;
       commit('SET_PIECES_4', pieces);
     }).catch(error => console.log(error));
@@ -72,7 +72,7 @@ export const getPieces4 = ({ commit }) => {
 export const getPieces5 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Echappement').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Echappement').then(response => {
       pieces = response.data;
       commit('SET_PIECES_5', pieces);
     }).catch(error => console.log(error));
@@ -82,7 +82,7 @@ export const getPieces5 = ({ commit }) => {
 export const getPieces6 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Direction / Suspension / Roulements').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Direction / Suspension / Roulements').then(response => {
       pieces = response.data;
       commit('SET_PIECES_6', pieces);
     }).catch(error => console.log(error));
@@ -92,7 +92,7 @@ export const getPieces6 = ({ commit }) => {
 export const getPieces7 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Visibilite').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Visibilite').then(response => {
       pieces = response.data;
       commit('SET_PIECES_7', pieces);
     }).catch(error => console.log(error));
@@ -102,7 +102,7 @@ export const getPieces7 = ({ commit }) => {
 export const getPieces8 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Chauffage et climatisation').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Chauffage et climatisation').then(response => {
       pieces = response.data;
       commit('SET_PIECES_8', pieces);
     }).catch(error => console.log(error));
@@ -112,7 +112,7 @@ export const getPieces8 = ({ commit }) => {
 export const getPieces9 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Habitacle').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Habitacle').then(response => {
       pieces = response.data;
       commit('SET_PIECES_9', pieces);
     }).catch(error => console.log(error));
@@ -122,7 +122,7 @@ export const getPieces9 = ({ commit }) => {
 export const getPieces10 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Accessoires et portage').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Accessoires et portage').then(response => {
       pieces = response.data;
       commit('SET_PIECES_10', pieces);
     }).catch(error => console.log(error));
@@ -132,7 +132,7 @@ export const getPieces10 = ({ commit }) => {
 export const getPieces11 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Jantes %26 roues').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Jantes %26 roues').then(response => {
       pieces = response.data;
       commit('SET_PIECES_11', pieces);
     }).catch(error => console.log(error));
@@ -142,7 +142,7 @@ export const getPieces11 = ({ commit }) => {
 export const getPieces12 = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let pieces;
-    axios.get('http://localhost:8084/queryAllPieceByType?type1=Carrosserie').then(response => {
+    axios.get('http://121.40.86.86:8084/queryAllPieceByType?type1=Carrosserie').then(response => {
       pieces = response.data;
       commit('SET_PIECES_12', pieces);
     }).catch(error => console.log(error));
@@ -152,7 +152,7 @@ export const getPieces12 = ({ commit }) => {
 export const getPopularList = ({ commit }) => {
   return new Promise((resolve, reject) => {
     let popular;
-    axios.get('http://localhost:8084/queryHighestRatePiece').then(response => {
+    axios.get('http://121.40.86.86:8084/queryHighestRatePiece').then(response => {
       popular = response.data;
       commit('SET_POPULAR_LIST', popular);
     }).catch(error => console.log(error));
@@ -204,7 +204,7 @@ export const getMark = ({ commit }) => {
 // add panier
 export const addShoppingCart = ({ commit }, data) => {
   return new Promise((resolve, reject) => {
-    axios.post(`http://localhost:8084/addPieceToPanier?pid=${data.goods_id}&number=${data.count}&brand=${data.mark}&user=${data.user_name}`).then(response => {
+    axios.post(`http://121.40.86.86:8084/addPieceToPanier?pid=${data.goods_id}&number=${data.count}&brand=${data.mark}&user=${data.user_name}`).then(response => {
     }).catch(error => console.log(error));
     commit('ADD_SHOPPING_CART', data);
   });
@@ -213,7 +213,7 @@ export const addShoppingCart = ({ commit }, data) => {
 // commit order
 export const commitOrder = ({ commit }, data) => {
   return new Promise((resolve, reject) => {
-    axios.post(`http://localhost:8084/commitOrder?user=${data}`);
+    axios.post(`http://121.40.86.86:8084/commitOrder?user=${data}`);
   });
 };
 
@@ -222,7 +222,7 @@ export const getOrder = ({ commit }, user) => {
   return new Promise((resolve, reject) => {
     let order = [];
     let temp;
-    axios.get(`http://localhost:8084/queryAllOrder?user=${user}`).then(response => {
+    axios.get(`http://121.40.86.86:8084/queryAllOrder?user=${user}`).then(response => {
       temp = response.data;
       temp.forEach((item, index) => {
         let obj = item;
@@ -244,7 +244,7 @@ export const getOrder = ({ commit }, user) => {
 // delete panier
 export const deletePanier = ({ commit }, user) => {
   return new Promise((resolve, reject) => {
-    axios.post(`http://localhost:8084/deleteAll?user=${user}`).then(response => {
+    axios.post(`http://121.40.86.86:8084/deleteAll?user=${user}`).then(response => {
       let data = [];
       commit('SET_SHOPPING_CART', data);
     });
@@ -281,7 +281,7 @@ export const loadShoppingCart = ({ commit }, user) => {
   return new Promise((resolve, reject) => {
     let panier = [];
     let temp;
-    axios.get(`http://localhost:8084/queryAllPieceInPanier?user=${user}`).then(response => {
+    axios.get(`http://121.40.86.86:8084/queryAllPieceInPanier?user=${user}`).then(response => {
       temp = response.data;
       temp.forEach((item, index) => {
         let obj = item;
